@@ -1,0 +1,50 @@
+.sheet input {font-size: .9em;
+            height: .9em}
+.charsheet table td {text-align: left;
+                    padding-right: 2px}
+.sheet-header {font-weight: bold;
+                background-color: #aa7939}
+.sheet-inpShort {width: 2.5em}
+.sheet-inp2 {width:2em}
+.sheet-inp3 {width:3em}
+.sheet-inp4 {width:4em}
+.sheet-inp5 {width:5em}
+
+.sheet-headCol {font-weight: bold;
+                text-align: right}
+.sheet-pageTop {font-weight: bold;
+                font-size: 1.2em}
+td.sheet-sectionBox {border-width: 2px;
+                border-color: blue;
+                border-radius: 8px;
+                border-style: solid;}
+table.sheet-sectionTable {    border-spacing: 10px;
+                            border-collapse: separate}
+
+.charsheet label {
+    display: inline-block;
+    width: 75px;
+	text-align: right;
+}
+
+.charsheet input {
+	display: inline-block;
+	width: 165px;
+}
+
+.sheet-col strong.sheet-dee {
+	font-size: 1.4em;
+	font-weight: bold;
+	padding-right: 4px;
+}
+
+.charsheet input.sheet-short {
+	width: 3.5em;
+}
+
+
+
+select.sheet-dtype {
+    width: 60px;
+    vertical-align: top;
+}

@@ -1,0 +1,93 @@
+Strength <input type="text" name="attr_a-strength" />
+ <input type="text" name="attr_a-strength-adj" readonly="readonly"/>
+<br />
+Agility <input type="text" name="attr_a-agility" />
+ <input type="text" name="attr_a-agility-adj" readonly="readonly"/>
+<br />
+Willpower <input type="text" name="attr_a-willpower" />
+ <input type="text" name="attr_a-willpower-adj" readonly="readonly"/>
+<hr />
+<hr />
+
+<div>Strength Skills </div>
+<div>Fightin' <input type="text" name="attr_sk-fightin-honed" readonly="readonly" /></div>
+<div>Liftin' <input type="text" name="attr_sk-liftin-honed" readonly="readonly" /></div>
+
+<div>Agility Skills </div>
+<div>Dancin' <input type="text" name="attr_sk-dancin-honed" readonly="readonly" /></div>
+<div>Dodgin' <input type="text" name="attr_sk-dodgin-honed" readonly="readonly" /></div>
+
+<script type="text/worker">
+var increm = 0;
+var attribs = [];
+
+increm=0;
+attribs[increm++] = "strength";
+attribs[increm++] = "agility";
+attribs[increm++] = "willpower";
+
+var dynamAttribChangeString = ""
+for (var i = 0; i< attribs.length; i++) {
+    dynamAttribChangeString += "change:a-" + attribs[i] + " ";
+}
+console.log (dynamAttribChangeString);
+
+var attribSkills = [];
+increm = 0;
+attribSkills["strength"] = [];
+attribSkills["strength"][increm++] = "fightin";
+attribSkills["strength"][increm++] = "liftin";
+
+increm = 0;
+attribSkills["agility"] = [];
+attribSkills["agility"][increm++] = "dancin";
+attribSkills["agility"][increm++] = "dodgin";
+
+
+
+var calcAttribAdj = function(attrib) {
+    if (isNaN(attrib)) {
+        return attrib;
+    }
+    return Math.floor( (parseInt(attrib) - 10) / 2);
+}
+
+var setSkillAttribMods = function(attrib) {
+    var attrGrp = attrib.replace("a-","");
+    console.log("setSkillAttribMods: " + attrib + '-adj');
+    getAttrs([attrib + "-adj"], function(v) {
+        /*
+        console.log(v);
+        console.log("Attribute Group: " + attrGrp);
+        if (attribSkills[attrGrp]) {
+            // Loop through each skill and set it's adjustment value
+            var targObj = {};
+            for (var i = 0; i < attribSkills[attrGrp].length; i++) {
+                attribSkillModKey = "sk-" attribSkills[attrGrp][i] + "-honed";
+                console.log("Looking for " + attribSkillModKey);
+                targObj[attribSkillModKey] = v[attrib + "-adj"];
+            }
+            setAttrs(targObj);
+        }
+        else {
+            console.log("Unable to find attribSkills." + attrGrp);
+        }*/
+    });
+}
+
+on(dynamAttribChangeString, function(e) {
+    console.log(e);
+    for (var i = 0; i < attribs.length; i++) {
+        console.log(attribs[i]);
+    }
+    getAttrs([e.sourceAttribute], function(v) {
+        var targ = e.sourceAttribute + "-adj";
+        var targVal = calcAttribAdj(v[e.sourceAttribute]);
+        var targObj = {};
+        targObj[targ] = targVal;
+        setAttrs(targObj);
+        setSkillAttribMods(e.sourceAttribute);
+    });
+});
+
+</script>
