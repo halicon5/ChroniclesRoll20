@@ -1,156 +1,161 @@
+
 <img src="http://dev.kantia.net/images/ChroniclesHead.jpg" />
 
 <div class="pageTop">
-    Character Name: <input name="characterName"/> Race: <input name="characterRace"/>
+	Character Name: <input name="characterName"/> Race: <input name="characterRace"/>
 </div>
 
+<div class="attributesSection">
+	<div class="statHeaderRow">
+		<div class="attribName statLabel">Attribute</div>
+	</div>
+	<div class="statRow">
+		<div class="attribName statLabel">Strength</div>
+		<input type="text" class="inpAttr" name="attr_a-strength" size="2" maxlength="2" />
+		<input type="text" class="inpAttr" name="attr_a-strength-adj" size="2" maxlength="3" />
+		<input type="text" class="inpAttr" name="attr_STR" size="2" maxlength="3" />
+		 STR
+	</div>  
+	<div class="statRow">
+		<div class="attribName statLabel">Size</div>
+		<input type="text" class="inpAttr" name="attr_a-size" size="2" maxlength="2" />
+		<input type="text" class="inpAttr" name="attr_a-size-adj" size="2" maxlength="3" />
+		<input type="text" class="inpAttr" name="attr_SIZ" size="2" maxlength="3" />
+		 SIZ
+	</div>  
+</div>
+	
+
 <table class="sectionTable">
-    <tr valign="top">
-        <td class="sectionBox"> <!-- First column of data -->
-            <table> <!-- Core Attributes -->
-                <colgroup>
-                    <col class="headCol" />
-                    <col />
-                    <col />
-                    <col />
-                </colgroup>
-                <tr class="header">
-                    <td class="headCol">Attribute</td>
-                    <td>Rank</td>
-                    <td>Adj</td>
-                    <td>Honed</td>
-                </tr>
-                <tr>
-                    <td class="headCol">Strength</td>
-                    <td><input type="text" class="inpShort" name="attr_aStrength" size="2" maxlength="2"/></td>
-                    <td><input type="text" class="inpShort" name="attr_aStrengthAdj" size="2" maxlength="2"/></td>
-                    <td><input type="text" class="inpShort" name="attr_STR" size="2" maxlength="2"/>STR</td>
-                </tr>
-                <tr>
-                    <td class="headCol">Size</td>
-                    <td><input type="text" class="inpShort" name="attr_aSize" size="2" maxlength="2"/></td>
-                    <td><input type="text" class="inpShort" name="attr_aSizeAdj" size="2" maxlength="2"/></td>
-                    <td><input type="text" class="inpShort" name="attr_STR" size="2" maxlength="2"/>SIZ</td>
-                </tr>
-                <tr>
-                    <td class="headCol">Agility</td>
-                    <td><input type="text" class="inpShort" name="attr_aAgility" size="2" maxlength="2"/></td>
-                    <td><input type="text" class="inpShort" name="attr_aAgilityAdj" size="2" maxlength="2"/></td>
-                    <td><input type="text" class="inpShort" name="attr_AGL" size="2" maxlength="2"/>AGL</td>
-                </tr>
-                <tr>
-                    <td class="headCol">Reflexes</td>
-                    <td><input type="text" class="inpShort" name="attr_aReflexes" size="2" maxlength="2"/></td>
-                    <td><input type="text" class="inpShort" name="attr_aReflexesAdj" size="2" maxlength="2"/></td>
-                    <td><input type="text" class="inpShort" name="attr_REF" size="2" maxlength="2"/>REF</td>
-                </tr>
-                <tr>
-                    <td class="headCol">Constitution</td>
-                    <td><input type="text" class="inpShort" name="attr_aConstitution" size="2" maxlength="2"/></td>
-                    <td><input type="text" class="inpShort" name="attr_aConstitutionAdj" size="2" maxlength="2"/></td>
-                    <td><input type="text" class="inpShort" name="attr_CON" size="2" maxlength="2"/>CON</td>
-                </tr>
-                <tr>
-                    <td class="headCol">Fortitude</td>
-                    <td><input type="text" class="inpShort" name="attr_aFortitude" size="2" maxlength="2"/></td>
-                    <td><input type="text" class="inpShort" name="attr_aFortitudeAdj" size="2" maxlength="2"/></td>
-                    <td><input type="text" class="inpShort" name="attr_FORT" size="2" maxlength="2"/>FORT</td>
-                </tr>
-                <tr>
-                    <td class="headCol">Reasoning</td>
-                    <td><input type="text" class="inpShort" name="attr_aReasoning" size="2" maxlength="2"/></td>
-                    <td><input type="text" class="inpShort" name="attr_aReasoningAdj" size="2" maxlength="2"/></td>
-                    <td><input type="text" class="inpShort" name="attr_REA" size="2" maxlength="2"/>REA</td>
-                </tr>
-                <tr>
-                    <td class="headCol">Willpower</td>
-                    <td><input type="text" class="inpShort" name="attr_aWillpower" size="2" maxlength="2"/></td>
-                    <td><input type="text" class="inpShort" name="attr_aWillpowerAdj" size="2" maxlength="2"/></td>
-                    <td><input type="text" class="inpShort" name="attr_WILL" size="2" maxlength="2"/>WILL</td>
-                </tr>
-                <tr>
-                    <td class="headCol">Spirit</td>
-                    <td><input type="text" class="inpShort" name="attr_aSpirit" size="2" maxlength="2"/></td>
-                    <td><input type="text" class="inpShort" name="attr_aSpiritAdj" size="2" maxlength="2"/></td>
-                    <td><input type="text" class="inpShort" name="attr_SPIR" size="2" maxlength="2"/>SPIR</td>
-                </tr>
-                <tr>
-                    <td class="headCol">Perception</td>
-                    <td><input type="text" class="inpShort" name="attr_aPerception" size="2" maxlength="2"/></td>
-                    <td><input type="text" class="inpShort" name="attr_aPerceptionAdj" size="2" maxlength="2"/></td>
-                    <td><input type="text" class="inpShort" name="attr_PER" size="2" maxlength="2"/>PER</td>
-                </tr>
-            </table>
-        </td>
-        <td class="sectionBox"><!-- 2nd column of data -->
-            <table> <!-- Basic Info -->
-                <colgroup>
-                    <col class="headCol" />
-                    <col />
-                </colgroup>
-                <tr class="header">
-                    <td colspan="2">Character Info</td>
-                </tr>
-                <tr>
-                    <td class="headCol">Age</td>
-                    <td><input type="text" class="inp3" name="age" maxlegnth="3"/></td>
-                </tr>
-                <tr>
-                    <td class="headCol">Height</td>
-                    <td><input type="text" class="inp4" name="height" maxlength="4" /></td>
-                </tr>
-                <tr>
-                    <td class="headCol">Weight</td>
-                    <td><input type="text" class="inp4" name="weight" maxlength="4"/></td>
-                </tr>
-                <tr>
-                    <td class="headCol">Lift/Haul</td>
-                    <td><input type="text" class="inp4" name="attr_lift" maxlength="4" />/<input type="text" class="inp4" name="attr_haul" maxlength="4"></td>
-                </tr>
-                <tr>
-                    <td class="headCol">Minor Move</td>
-                    <td><input type="text" class="inp2" name="attr_minorMove" maxlength="2"/></td>
-                </tr>
-                <tr>
-                    <td class="headCol">Major Move</td>
-                    <td><input type="text" class="inp2" name="attr_majorMove" maxlength="2"/></td>
-                </tr>
-                <tr>
-                    <td class="headCol">Karma (max)</td>
-                    <td><input type="text" class="inp2" name="attr_karma" maxlength="2" />/<input type="text" class="inp2" name="attr_karma_max" maxlength="2" /></td>
-                </tr>
-                <tr>
-                    <td class="headCol">Total XP</td>
-                    <td><input type="text" class="inp5" name="attr_spentXP" maxlength="5"/></td>
-                </tr>
-                <tr>
-                    <td class="headCol">Spent XP</td>
-                    <td><input type="text" class="inp5" name="attr_spentXP" maxlength="5"/></td>
-                </tr>
-                <tr>
-                    <td class="headCol">Unspent XP</td>
-                    <td><input type="text" class="inp5" name="attr_spentXP" maxlength="5"/></td>
-                </tr>
-            </table>
-        </td>
-    </tr>
+	<tr valign="top">
+		<td class="sectionBox"> <!-- First column of data -->
+			<table> <!-- Core Attributes -->
+				<colgroup>
+					<col class="headCol" />
+					<col />
+					<col />
+					<col />
+				</colgroup>
+				<tr class="header">
+					<td class="headCol">Attribute</td>
+					<td>Rank</td>
+					<td>Adj</td>
+					<td>Honed</td>
+				</tr>
+				<tr>
+					<td class="headCol">Strength</td>
+					<td><input type="text" class="inpShort" name="attr_aStrength" size="2" maxlength="2"/></td>
+					<td><input type="text" class="inpShort" name="attr_aStrengthAdj" size="2" maxlength="2" disabled="true"/></td>
+					<td><input type="text" class="inpShort" name="attr_STR" size="2" maxlength="2"/>STR</td>
+				</tr>
+				<tr>
+					<td class="headCol">Size</td>
+					<td><input type="text" class="inpShort" name="attr_aSize" size="2" maxlength="2"/></td>
+					<td><input type="text" class="inpShort" name="attr_aSizeAdj" size="2" maxlength="2"/></td>
+					<td><input type="text" class="inpShort" name="attr_STR" size="2" maxlength="2"/>SIZ</td>
+				</tr>
+				<tr>
+					<td class="headCol">Agility</td>
+					<td><input type="text" class="inpShort" name="attr_aAgility" size="2" maxlength="2"/></td>
+					<td><input type="text" class="inpShort" name="attr_aAgilityAdj" size="2" maxlength="2"/></td>
+					<td><input type="text" class="inpShort" name="attr_AGL" size="2" maxlength="2"/>AGL</td>
+				</tr>
+				<tr>
+					<td class="headCol">Reflexes</td>
+					<td><input type="text" class="inpShort" name="attr_aReflexes" size="2" maxlength="2"/></td>
+					<td><input type="text" class="inpShort" name="attr_aReflexesAdj" size="2" maxlength="2"/></td>
+					<td><input type="text" class="inpShort" name="attr_REF" size="2" maxlength="2"/>REF</td>
+				</tr>
+				<tr>
+					<td class="headCol">Constitution</td>
+					<td><input type="text" class="inpShort" name="attr_aConstitution" size="2" maxlength="2"/></td>
+					<td><input type="text" class="inpShort" name="attr_aConstitutionAdj" size="2" maxlength="2"/></td>
+					<td><input type="text" class="inpShort" name="attr_CON" size="2" maxlength="2"/>CON</td>
+				</tr>
+				<tr>
+					<td class="headCol">Fortitude</td>
+					<td><input type="text" class="inpShort" name="attr_aFortitude" size="2" maxlength="2"/></td>
+					<td><input type="text" class="inpShort" name="attr_aFortitudeAdj" size="2" maxlength="2"/></td>
+					<td><input type="text" class="inpShort" name="attr_FORT" size="2" maxlength="2"/>FORT</td>
+				</tr>
+				<tr>
+					<td class="headCol">Reasoning</td>
+					<td><input type="text" class="inpShort" name="attr_aReasoning" size="2" maxlength="2"/></td>
+					<td><input type="text" class="inpShort" name="attr_aReasoningAdj" size="2" maxlength="2"/></td>
+					<td><input type="text" class="inpShort" name="attr_REA" size="2" maxlength="2"/>REA</td>
+				</tr>
+				<tr>
+					<td class="headCol">Willpower</td>
+					<td><input type="text" class="inpShort" name="attr_aWillpower" size="2" maxlength="2"/></td>
+					<td><input type="text" class="inpShort" name="attr_aWillpowerAdj" size="2" maxlength="2"/></td>
+					<td><input type="text" class="inpShort" name="attr_WILL" size="2" maxlength="2"/>WILL</td>
+				</tr>
+				<tr>
+					<td class="headCol">Spirit</td>
+					<td><input type="text" class="inpShort" name="attr_aSpirit" size="2" maxlength="2"/></td>
+					<td><input type="text" class="inpShort" name="attr_aSpiritAdj" size="2" maxlength="2"/></td>
+					<td><input type="text" class="inpShort" name="attr_SPIR" size="2" maxlength="2"/>SPIR</td>
+				</tr>
+				<tr>
+					<td class="headCol">Perception</td>
+					<td><input type="text" class="inpShort" name="attr_aPerception" size="2" maxlength="2"/></td>
+					<td><input type="text" class="inpShort" name="attr_aPerceptionAdj" size="2" maxlength="2"/></td>
+					<td><input type="text" class="inpShort" name="attr_PER" size="2" maxlength="2"/>PER</td>
+				</tr>
+			</table>
+		</td>
+		<td class="sectionBox"><!-- 2nd column of data -->
+			<table> <!-- Basic Info -->
+				<colgroup>
+					<col class="headCol" />
+					<col />
+				</colgroup>
+				<tr class="header">
+					<td colspan="2">Character Info</td>
+				</tr>
+				<tr>
+					<td class="headCol">Age</td>
+					<td><input type="text" class="inp3" name="age" maxlegnth="3"/></td>
+				</tr>
+				<tr>
+					<td class="headCol">Height</td>
+					<td><input type="text" class="inp4" name="height" maxlength="4" /></td>
+				</tr>
+				<tr>
+					<td class="headCol">Weight</td>
+					<td><input type="text" class="inp4" name="weight" maxlength="4"/></td>
+				</tr>
+				<tr>
+					<td class="headCol">Lift/Haul</td>
+					<td><input type="text" class="inp4" name="attr_lift" maxlength="4" />/<input type="text" class="inp4" name="attr_haul" maxlength="4"></td>
+				</tr>
+				<tr>
+					<td class="headCol">Minor Move</td>
+					<td><input type="text" class="inp2" name="attr_minorMove" maxlength="2"/></td>
+				</tr>
+				<tr>
+					<td class="headCol">Major Move</td>
+					<td><input type="text" class="inp2" name="attr_majorMove" maxlength="2"/></td>
+				</tr>
+				<tr>
+					<td class="headCol">Karma (max)</td>
+					<td><input type="text" class="inp2" name="attr_karma" maxlength="2" />/<input type="text" class="inp2" name="attr_karma_max" maxlength="2" /></td>
+				</tr>
+				<tr>
+					<td class="headCol">Total XP</td>
+					<td><input type="text" class="inp5" name="attr_spentXP" maxlength="5"/></td>
+				</tr>
+				<tr>
+					<td class="headCol">Spent XP</td>
+					<td><input type="text" class="inp5" name="attr_spentXP" maxlength="5"/></td>
+				</tr>
+				<tr>
+					<td class="headCol">Unspent XP</td>
+					<td><input type="text" class="inp5" name="attr_spentXP" maxlength="5"/></td>
+				</tr>
+			</table>
+		</td>
+	</tr>
 </table>
 
 
-<script type="text/worker">
-    on("change:astrength", function() {
-        getAttrs(["aStrength"], function(v) {
-            setAttrs({
-                "aStrengthAdj": Math.floor((parseInt(v["aStrength"],10) - 10) / 2);
-            });
-        });
-    });
-
-    on("change:con-base", function() {
-        getAttrs(["CON-base"], function(v) {
-            setAttrs({
-               "REC-bonus": Math.floor((parseInt(v["CON-base"],10) - 10) / 2)
-            });
-        });
-    });
-</script>

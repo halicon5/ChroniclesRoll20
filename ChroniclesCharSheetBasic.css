@@ -1,5 +1,25 @@
 .sheet input {font-size: .9em;
-            height: .9em}
+            height: .9em;}
+
+div.sheet-attributesSection  {display: inline-block;
+                border-width: 2px;
+                border-color: blue;
+                border-radius: 8px;
+                border-style: solid;}
+
+div.sheet-statHeaderRow {background-color: #aa7939;
+                        border-radius: 8px 8px 5px 5px;
+                        }
+
+div.sheet-statRow  {width: 100%;}
+
+div.sheet-statLabel {font-weight: bold; 
+                    width: 70px;}
+div.sheet-attribName  {display: inline-block;
+                        text-align: right;}
+
+input.sheet-inpAttr {width: 2.5em;}
+
 .charsheet table td {text-align: left;
                     padding-right: 2px}
 .sheet-header {font-weight: bold;
@@ -21,30 +41,3 @@ td.sheet-sectionBox {border-width: 2px;
 table.sheet-sectionTable {    border-spacing: 10px;
                             border-collapse: separate}
 
-.charsheet label {
-    display: inline-block;
-    width: 75px;
-	text-align: right;
-}
-
-.charsheet input {
-	display: inline-block;
-	width: 165px;
-}
-
-.sheet-col strong.sheet-dee {
-	font-size: 1.4em;
-	font-weight: bold;
-	padding-right: 4px;
-}
-
-.charsheet input.sheet-short {
-	width: 3.5em;
-}
-
-
-
-select.sheet-dtype {
-    width: 60px;
-    vertical-align: top;
-}
