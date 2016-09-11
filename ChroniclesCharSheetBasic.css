@@ -24,13 +24,18 @@ div.sheet-attribName  {display: inline-block;
                         text-align: right;}
 
 input.sheet-inpAttr {width: 2.5em; height: 24px;}
-input.sheet-cinfo {height: 24px;}
+input.sheet-cinfo, input.sheet-vstat {height: 24px;}
 
 div.sheet-cinfoLabel {display:inline-block;
                 width: 90px;
                 font-weight: bold;
                 text-align: right;}
-div.sheet-cinfoData {display:inline-block;}
+div.sheet-cinfoData, div.sheet-vStatsData {display:inline-block;}
+
+div.sheet-vStatsLabel {display:inline-block;
+                width: 90px;
+                font-weight: bold;
+                text-align: right;}
 
 .charsheet table td {text-align: left;
                     padding-right: 2px}
