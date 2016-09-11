@@ -2,11 +2,12 @@
             height: 12px;
             padding: 3px}
 
-div.sheet-attributesSection  {display: inline-block;
+div.sheet-attributesSection, div.sheet-charInfoSection, div.sheet-charVitalStatsSection {display: inline-block;
                 border-width: 2px;
                 border-color: blue;
                 border-radius: 8px;
-                border-style: solid;}
+                border-style: solid;
+                vertical-align: top;}
 
 div.sheet-statHeaderRow {background-color: #aa7939;
                         border-radius: 8px 8px 0px 0px;
@@ -17,12 +18,19 @@ div.sheet-statRow  {width: 100%;}
 div.sheet-statLabel {font-weight: bold;
                     display: inline-block;}
 
-div.sheet-wideXS {width: 35px;}
-div.sheet-wideSM {width: 70px;}
+div.sheet-wideXS {width: 35px; display: inline-block;}
+div.sheet-wideSM {width: 70px; display: inline-block;}
 div.sheet-attribName  {display: inline-block;
                         text-align: right;}
 
 input.sheet-inpAttr {width: 2.5em; height: 24px;}
+input.sheet-cinfo {height: 24px;}
+
+div.sheet-cinfoLabel {display:inline-block;
+                width: 90px;
+                font-weight: bold;
+                text-align: right;}
+div.sheet-cinfoData {display:inline-block;}
 
 .charsheet table td {text-align: left;
                     padding-right: 2px}
