@@ -142,11 +142,56 @@
 		<div class="statLabel">Vital Statistics</div>
 	</div>
 	<div class="statRow">
-		<div class="vStatsLabel">Max HPs</div>
+		<div class="vStatsLabel">Max HPs:</div>
 		<div class="vStatsData">
 			base: <input type="text" class="vstat inp3" name="attr_hp-base" maxlength="3" />
 			mod: <input type="text" class="vstat inp3" name="attr_hp-adj" maxlength="3" />
-			tot: <input type="text" class="vstat inp3" name="attr_hp-tot" maxlength="3" />
+			tot: <input type="text" class="vstat inp3" name="attr_hp-tot" maxlength="3" readonly="readonly" />
+		</div>
+	</div>
+	<div class="statRow">
+		<div class="vStatsLabel">Max STAM:</div>
+		<div class="vStatsData">
+			base: <input type="text" class="vstat inp3" name="attr_stam-base" maxlength="3" />
+			mod: <input type="text" class="vstat inp3" name="attr_stam-adj" maxlength="3" />
+			tot: <input type="text" class="vstat inp3" name="attr_stam-tot" maxlength="3" readonly="readonly" />
+		</div>
+	</div>
+	<div class="statRow">
+		<div class="vStatsLabel">Stun/Pain:</div>
+		<div class="vStatsData">
+			base: <input type="text" class="vstat inp3" name="attr_stunpain-base" maxlength="3" />
+			mod: <input type="text" class="vstat inp3" name="attr_stunpain-adj" maxlength="3" />
+			tot: <input type="text" class="vstat inp3" name="attr_stunpain-tot" maxlength="3" readonly="readonly" />
+		</div>
+	</div>
+	<div class="statRow">
+		<div style="text-align: center;">Recovery</div>
+	</div>
+	<div class="statRow">
+		<div style="font-weight: bold;">Stamina Recovery Rate:</div>
+		<div class="vStatsData">
+			Base: <input type="text" class="vstat inp3" name="attr_stamrec-base" maxlength="3" />
+			mod: <input type="text" class="vstat inp3" name="attr_stamrec-conadj" maxlength="3" />
+			<input type="text" class="vstat inp3" name="attr_stunpain-tot" maxlength="3" />/hour sleep
+		</div>
+	</div>
+	<div class="statRow">
+		<div style="font-weight: bold; display: inline-block">Wind Recovery:</div>
+		<div class="vStatsData">
+			<input type="text" class="vstat inp3" name="attr_windpercent" maxlength="2" />%
+			( <input type="text" class="vstat inp3" name="attr_windstam" maxlength="3"  readonly="readonly" /> )
+		</div>
+	</div>
+	<div class="statRow">
+		<div class="vStatsLabel" style="vertical-align: top;">Healing Rate:</div>
+		<div class="vStatsData">
+			Healing Adj. <input type="text" class="vstat inp3" name="attr_healing-adj" maxlength="2" />
+			Med Mods<input type="text" class="vstat inp3" name="attr_healing-mod" maxlength="2" />%
+			<div>
+				Wounds: <input class="vstat healrate" name="attr_heal-wnd" readonly="readonly"/>
+				Severe: <input class="vstat healrate" name="attr_heal-svr" readonly="readonly"/>
+			</div>
 		</div>
 	</div>
 </div> <!-- End vital stats section -->

@@ -26,6 +26,8 @@ div.sheet-attribName  {display: inline-block;
 input.sheet-inpAttr {width: 2.5em; height: 24px;}
 input.sheet-cinfo, input.sheet-vstat {height: 24px;}
 
+input.sheet-healrate {height: 24px; width: 50px;}
+
 div.sheet-cinfoLabel {display:inline-block;
                 width: 90px;
                 font-weight: bold;
@@ -46,6 +48,7 @@ div.sheet-vStatsLabel {display:inline-block;
 .sheet-inp3 {width:3em}
 .sheet-inp4 {width:4em}
 .sheet-inp5 {width:5em}
+
 
 .sheet-headCol {font-weight: bold;
                 text-align: right}
