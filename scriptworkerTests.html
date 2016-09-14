@@ -28,7 +28,7 @@ attribs[increm++] = "willpower";
 
 var dynamAttribChangeString = ""
 for (var i = 0; i< attribs.length; i++) {
-    dynamAttribChangeString += "change:a-" + attribs[i] + " ";
+	dynamAttribChangeString += "change:a-" + attribs[i] + " ";
 }
 console.log (dynamAttribChangeString);
 
@@ -43,51 +43,55 @@ attribSkills["agility"] = [];
 attribSkills["agility"][increm++] = "dancin";
 attribSkills["agility"][increm++] = "dodgin";
 
-
+var promChain = undefined;
+console.log("== KANTIALOG -- Promchain = " + promChain);
 
 var calcAttribAdj = function(attrib) {
-    if (isNaN(attrib)) {
-        return attrib;
-    }
-    return Math.floor( (parseInt(attrib) - 10) / 2);
+	if (isNaN(attrib)) {
+		return attrib;
+	}
+	return Math.floor( (parseInt(attrib) - 10) / 2);
 }
 
 var setSkillAttribMods = function(attrib) {
-    var attrGrp = attrib.replace("a-","");
-    console.log("setSkillAttribMods: " + attrib + '-adj');
-    getAttrs([attrib + "-adj"], function(v) {
-        /*
-        console.log(v);
-        console.log("Attribute Group: " + attrGrp);
-        if (attribSkills[attrGrp]) {
-            // Loop through each skill and set it's adjustment value
-            var targObj = {};
-            for (var i = 0; i < attribSkills[attrGrp].length; i++) {
-                attribSkillModKey = "sk-" attribSkills[attrGrp][i] + "-honed";
-                console.log("Looking for " + attribSkillModKey);
-                targObj[attribSkillModKey] = v[attrib + "-adj"];
-            }
-            setAttrs(targObj);
-        }
-        else {
-            console.log("Unable to find attribSkills." + attrGrp);
-        }*/
-    });
+	var attrGrp = attrib.replace("a-","");
+	console.log("== KANTIALOG -- setSkillAttribMods: " + attrib + '-adj');
+	promChain = getAttrs([attrib + "-adj"], function(v) {
+		console.log(v);
+		console.log("== KANTIALOG -- Attribute Group: " + attrGrp);
+		if (attribSkills[attrGrp]) {
+			console.log("== KANTIALOG -- Attribute Gourp2: " + attribSkills[attrGrp]); 
+				   // Loop through each skill and set it's adjustment value
+			console.log("== KANTIALOG -- attribSkills[attrGrp].length = " + attribSkills[attrGrp].length );
+			var targObj = {};
+			for (var i = 0; i < attribSkills[attrGrp].length; i++) {
+				console.log("== KANTIALOG -- " + i);		
+		//		attribSkillModKey = "sk-" attribSkills[attrGrp][i] + "-honed";
+		//		console.log("== KANTIALOG -- Looking for " + attribSkillModKey);
+		//		targObj[attribSkillModKey] = v[attrib + "-adj"];
+			}
+			setAttrs(targObj);
+		}
+		else {
+			console.log("== KANTIALOG -- Unable to find attribSkills." + attrGrp);
+		}
+	});
+	console.log("== KANTIALOG -- Promchain = " + promChain);
 }
 
 on(dynamAttribChangeString, function(e) {
-    console.log(e);
-    for (var i = 0; i < attribs.length; i++) {
-        console.log(attribs[i]);
-    }
-    getAttrs([e.sourceAttribute], function(v) {
-        var targ = e.sourceAttribute + "-adj";
-        var targVal = calcAttribAdj(v[e.sourceAttribute]);
-        var targObj = {};
-        targObj[targ] = targVal;
-        setAttrs(targObj);
-        setSkillAttribMods(e.sourceAttribute);
-    });
+	console.log(e);
+	for (var i = 0; i < attribs.length; i++) {
+		console.log(attribs[i]);
+	}
+	getAttrs([e.sourceAttribute], function(v) {
+		var targ = e.sourceAttribute + "-adj";
+		var targVal = calcAttribAdj(v[e.sourceAttribute]);
+		var targObj = {};
+		targObj[targ] = targVal;
+		setAttrs(targObj);
+		setSkillAttribMods(e.sourceAttribute);
+	});
 });
 
 </script>
