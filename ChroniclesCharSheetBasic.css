@@ -1,63 +1,94 @@
 .sheet input[type='text'] {font-size: .9em;
-            height: 12px;
-            padding: 3px}
+			height: 12px;
+			padding: 3px}
 
-div.sheet-attributesSection, div.sheet-charInfoSection, div.sheet-charVitalStatsSection {display: inline-block;
-                border-width: 2px;
-                border-color: blue;
-                border-radius: 8px;
-                border-style: solid;
-                vertical-align: top;}
+div.sheet-attributesSection, div.sheet-charInfoSection, div.sheet-charVitalStatsSection, div.sheet-defenseSummary {display: inline-block;
+				border-width: 2px;
+				border-color: blue;
+				border-radius: 8px 8px 8px 8px;
+				border-style: solid;
+				vertical-align: top;}
+table.sheet-attributeSection, table.sheet-charInfoSection {border-collapse: collapse;
+						border: none;}
+
+
+
 
 div.sheet-statHeaderRow {background-color: #aa7939;
-                        border-radius: 8px 8px 0px 0px;
-                        }
+						border-radius: 5px 5px 0px 0px;
+						}
+
+tr.sheet-statHeaderRow { background-color: #aa7939; }
+tr.sheet-statHeaderRow th:first-child {
+	border-radius: 8px 0 0 0;
+}
+tr.sheet-statHeaderRow th:last-child {
+	border-radius: 0 8px 0 0;
+}
+
 
 div.sheet-statRow  {width: 100%;}
 
+.sheet-statLabel {font-weight:bold;}
 div.sheet-statLabel {font-weight: bold;
-                    display: inline-block;}
+					display: inline-block;}
 
 div.sheet-wideXS {width: 35px; display: inline-block;}
 div.sheet-wideSM {width: 70px; display: inline-block;}
-div.sheet-attribName  {display: inline-block;
-                        text-align: right;}
+.sheet-attribName  {text-align: right;}
 
 input.sheet-inpAttr {width: 2.5em; height: 24px;}
-input.sheet-cinfo, input.sheet-vstat {height: 24px;}
+input.sheet-cinfo, input.sheet-vstat, input.sheet-comStat {height: 24px;}
 
 input.sheet-healrate {height: 24px; width: 50px;}
 
 div.sheet-cinfoLabel {display:inline-block;
-                width: 90px;
-                font-weight: bold;
-                text-align: right;}
+				width: 90px;
+				font-weight: bold;
+				text-align: right;}
 div.sheet-cinfoData, div.sheet-vStatsData {display:inline-block;}
 
+div.sheet-defLabel {display:inline-block;
+				width: 120px;
+				font-weight: bold;
+				text-align: right;}
+
 div.sheet-vStatsLabel {display:inline-block;
-                width: 90px;
-                font-weight: bold;
-                text-align: right;}
+				width: 90px;
+				font-weight: bold;
+				text-align: right;}
+
+div.sheet-defTwoCol {display:inline-block;
+							font-weight:bold;
+							width: 120px;
+							text-align: center;}
+
 
 .charsheet table td {text-align: left;
-                    padding-right: 2px}
+					padding-right: 2px}
 .sheet-header {font-weight: bold;
-                background-color: #aa7939}
+				background-color: #aa7939}
 .sheet-inpShort {width: 2.5em}
 .sheet-inp2 {width:2em}
-.sheet-inp3 {width:3em}
+.sheet-inp3 {width:40px}
 .sheet-inp4 {width:4em}
 .sheet-inp5 {width:5em}
 
+input.sheet-inp2big {font-size: 24pt;
+			width: 50px;
+			height:50px;
+			font-weight: bold;
+			text-align: center;}
+
 
 .sheet-headCol {font-weight: bold;
-                text-align: right}
+				text-align: right}
 .sheet-pageTop {font-weight: bold;
-                font-size: 1.2em}
+				font-size: 1.2em}
 td.sheet-sectionBox {border-width: 2px;
-                border-color: blue;
-                border-radius: 8px;
-                border-style: solid;}
+				border-color: blue;
+				border-radius: 8px;
+				border-style: solid;}
 table.sheet-sectionTable {    border-spacing: 10px;
-                            border-collapse: separate}
+							border-collapse: separate}
 
