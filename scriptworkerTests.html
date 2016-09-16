@@ -66,9 +66,9 @@ var setSkillAttribMods = function(attrib) {
 			var targObj = {};
 			for (var i = 0; i < attribSkills[attrGrp].length; i++) {
 				console.log("== KANTIALOG -- " + i);		
-		//		attribSkillModKey = "sk-" attribSkills[attrGrp][i] + "-honed";
-		//		console.log("== KANTIALOG -- Looking for " + attribSkillModKey);
-		//		targObj[attribSkillModKey] = v[attrib + "-adj"];
+				attribSkillModKey = "sk-" + attribSkills[attrGrp][i] + "-honed";
+				console.log("== KANTIALOG -- Looking for " + attribSkillModKey);
+				targObj[attribSkillModKey] = v[attrib + "-adj"];
 			}
 			setAttrs(targObj);
 		}
