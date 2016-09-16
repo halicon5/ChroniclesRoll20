@@ -7,31 +7,44 @@ cs.initialize = function() {
 	console.log("CHRON cs.initialize")
 
 	this.configAttribs();
+	this.configManualMods();
 	this.configDerivedStats();
 	this.assignAttributeChangeTriggers();
+	this.assignManualModChangeTriggers();
 }
 
 cs.configAttribs = function() {
 	console.log("CHRON: cs.configAttribs");
 
-	increm = 0;
 	this.attribs = [];
-	this.attribs[increm++] = {"attr": "strength",	"honed":"str"};
-	this.attribs[increm++] = {"attr": "size", 		"honed":"siz"};
-	this.attribs[increm++] = {"attr": "agility", 	"honed":"agl"};
-	this.attribs[increm++] = {"attr": "reflexes", 	"honed":"ref"};
-	this.attribs[increm++] = {"attr": "constitution", "honed":"con"};
-	this.attribs[increm++] = {"attr": "fortitude", 	"honed":"fort"};
-	this.attribs[increm++] = {"attr": "reasoning", 	"honed":"rea"};
-	this.attribs[increm++] = {"attr": "willpower", 	"honed":"will"};
-	this.attribs[increm++] = {"attr": "spirit", 	"honed":"spir"};
-	this.attribs[increm++] = {"attr": "perception",	"honed":"per"};
+	this.attribs.push( {"attr": "strength",	"honed":"str"} );
+	this.attribs.push( {"attr": "size", 		"honed":"siz"} );
+	this.attribs.push( {"attr": "agility", 	"honed":"agl"} );
+	this.attribs.push( {"attr": "reflexes", 	"honed":"ref"} );
+	this.attribs.push( {"attr": "constitution", "honed":"con"} );
+	this.attribs.push( {"attr": "fortitude", 	"honed":"fort"} );
+	this.attribs.push( {"attr": "reasoning", 	"honed":"rea"} );
+	this.attribs.push( {"attr": "willpower", 	"honed":"will"} );
+	this.attribs.push( {"attr": "spirit", 	"honed":"spir"} );
+	this.attribs.push( {"attr": "perception",	"honed":"per"} );
+}
+
+cs.configManualMods = function() {
+	console.log("CHRON: cs.configManualMods");
+	this.manualMods = [];
+	this.manualMods.push("hp-adj");
+	this.manualMods.push("stam-adj");
+	this.manualMods.push("stamrec-conadj");
+	this.manualMods.push("stunpain-adj");
+	this.manualMods.push("healing-adj");
+	this.manualMods.push("healing-medmod");
 }
 
 cs.configDerivedStats = function() {
 	console.log("CHRON: cs.configDerivedStats");
-
 	this.derivedStats = [];
+
+/*
 	this.derivedStats["strength"] = [];
 	this.derivedStats["size"] = [];
 	this.derivedStats["agility"] = [];
@@ -53,45 +66,45 @@ cs.configDerivedStats = function() {
 	this.derivedStats["will"] = [];
 	this.derivedStats["spir"] = [];
 	this.derivedStats["per"] = [];
+	*/
+	for (var i = 0; i < this.attribs.length; i++) {
+		this.derivedStats[this.attribs[i].attr] = [];
+		this.derivedStats[this.attribs[i].honed] = [];
+	}
 
-	console.log("CHRON: setting strength derived stat functions");
-	increm = 0;
-	this.derivedStats["strength"][increm++] = {"calc": cs.calc_lift };
-	this.derivedStats["strength"][increm++] = {"calc": cs.calc_haul };
+	for (var i = 0; i < this.manualMods.length; i++) {
+		if (!this.derivedStats[this.manualMods[i]]) {
+			this.derivedStats[this.manualMods[i]] = [];
+		}
+	}
 
-	increm = 0;
-	this.derivedStats["str"][increm++] = {"calc": cs.calc_movement};
+	this.derivedStats["strength"].push( {"calc": cs.calc_lift } );
+	this.derivedStats["strength"].push( {"calc": cs.calc_haul } );
+	
+	this.derivedStats["str"].push( {"calc": cs.calc_movement} );
 
-	console.log("CHRON: setting size derived stat function");
-	increm = 0;
-	this.derivedStats["size"][increm++] = {"calc":cs.calc_hp};
+	this.derivedStats["size"].push( {"calc":cs.calc_hp} );
+	
+	this.derivedStats["siz"].push( {"calc":cs.calc_stunPain} );
 
-	increm = 0;
-	this.derivedStats["siz"][increm++] = {"calc":cs.calc_stunPain};
+	this.derivedStats["constitution"].push( {"calc": cs.calc_stamRecoveryRate} );
+	this.derivedStats["constitution"].push( {"calc": cs.calc_stamina} );
+	
+	this.derivedStats["con"].push( {"calc":cs.calc_hp} );
+	
+	this.derivedStats["fortitude"].push( {"calc": cs.calc_stamina} );
+	
+	this.derivedStats["fort"].push( {"calc":cs.calc_stunPain} );
+	
+	this.derivedStats["willpower"].push( {"calc": cs.calc_stamina} );
+	
+	this.derivedStats["will"].push( {"calc": cs.calc_hp} );
+	
+	this.derivedStats["spirit"].push( {"calc": cs.calc_stamina} );
 
-	increm = 0;
-	this.derivedStats["constitution"][increm++] = {"calc": cs.calc_stamRecoveryRate};
-	this.derivedStats["constitution"][increm++] = {"calc": cs.calc_stamina};
-
-	increm = 0;
-	this.derivedStats["con"][increm++] = {"calc":cs.calc_hp};
-
-	increm = 0;
-	this.derivedStats["fortitude"][increm++] = {"calc": cs.calc_stamina};
-
-	increm = 0;
-	this.derivedStats["fort"][increm++] = {"calc":cs.calc_stunPain};
-
-	increm = 0;
-	this.derivedStats["willpower"][increm++] = {"calc": cs.calc_stamina};
-
-	increm = 0;
-	this.derivedStats["will"][increm++] = {"calc": cs.calc_hp};
-
-	increm = 0;
-	this.derivedStats["spirit"][increm++] = {"calc": cs.calc_stamina};
-
+	this.derivedStats["hp-adj"].push( {"calc": cs.calc_hp });
 }
+
 
 cs.assignAttributeChangeTriggers = function() {
 	console.log ("CHRON: cs.assignAttributeChangeTriggers");
@@ -108,6 +121,17 @@ cs.assignAttributeChangeTriggers = function() {
 	on(cs.dynamHonedChangeString, cs.processChangedHonedAttrib);
 }
 
+cs.assignManualModChangeTriggers = function() {
+	console.log ("CHRON: cs.assignAttributeChangeTriggers");	
+	this.dynamManualModChangeString = "";
+	for (var i = 0; i < this.manualMods.length; i++) {
+		this.dynamManualModChangeString += "change:" + this.manualMods[i] + " ";
+	}
+	console.log(this.dynamManualModChangeString);
+
+	on(cs.dynamManualModChangeString, cs.processChangedManualMod);
+}
+
 
 cs.processChangedAttribute = function(e) {
 	console.log("CHRON: cs.processChangedAttribute");
@@ -119,6 +143,10 @@ cs.processChangedAttribute = function(e) {
 cs.processChangedHonedAttrib = function(e) {
 	console.log("CHRON: cs.processChangedHonedAttrib");
 	console.log(e);
+	cs.setDerivedStats(e);
+}
+
+cs.processChangedManualMod = function(e) {
 	cs.setDerivedStats(e);
 }
 
