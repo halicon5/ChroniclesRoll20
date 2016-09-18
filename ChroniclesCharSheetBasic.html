@@ -99,11 +99,11 @@
 	</div>
 	<div class="statRow">
 		<div class="cinfoLabel">Height</div>
-		<div class="cinfoData"><input type="text" class="cinfo inp4" name="a_height" maxlength="4" /></div>
+		<div class="cinfoData"><input type="text" class="cinfo inp4" name="attr_height" maxlength="6" /></div>
 	</div>
 	<div class="statRow">
 		<div class="cinfoLabel">Weight</div>
-		<div class="cinfoData"><input type="text" class="cinfo inp4" name="a_weight" maxlength="4"/></div>
+		<div class="cinfoData"><input type="text" class="cinfo inp4" name="weight" maxlength="4"/></div>
 	</div>
 	<div class="statRow">
 		<div class="cinfoLabel">Lift/Haul</div>
@@ -111,20 +111,20 @@
 	</div>
 	<div class="statRow">
 		<div class="cinfoLabel">Minor Move</div>
-		<div class="cinfoData"><input type="text" class="cinfo inp2" name="attr_minorMove" maxlength="2" readonly="readonly"/> 
-			adj <input type="text" class="cinfo inp2" name="attr_minorMove-adj" maxlength="2"/>
-			tot <input type="text" class="cinfo inp2" name="attr_minorMove-tot" maxlength="2"/ readonly="readonly"></div>
+		<div class="cinfoData"><input type="hidden" class="cinfo inp2" name="attr_minorMove" maxlength="2" readonly="readonly"/> 
+			adj <input type="text" class="cinfo inp2" name="attr_minormove-adj" maxlength="2"/>
+			tot <input type="text" class="cinfo inp2" name="attr_minormove-tot" maxlength="2"/ readonly="readonly"></div>
 	</div>
 	<div class="statRow">
 		<div class="cinfoLabel">Major Move</div>
-		<div class="cinfoData"><input type="text" class="cinfo inp2" name="attr_majorMove" maxlength="2" readonly="readonly"/> 
-			adj <input type="text" class="cinfo inp2" name="attr_majorMove-adj" maxlength="2"/>
-			tot <input type="text" class="cinfo inp2" name="attr_majorMove-tot" maxlength="2" readonly="readonly"/>
+		<div class="cinfoData"><input type="hidden" class="cinfo inp2" name="attr_majorMove" maxlength="2" readonly="readonly"/> 
+			adj <input type="text" class="cinfo inp2" name="attr_majormove-adj" maxlength="2"/>
+			tot <input type="text" class="cinfo inp2" name="attr_majormove-tot" maxlength="2" readonly="readonly"/>
 		</div>
 	</div>
 	<div class="statRow">
 		<div class="cinfoLabel">Karma (max)</div>
-		<div class="cinfoData"><input type="text" class="cinfo inp2" name="attr_karma" maxlength="2" />/<input type="text" class="cinfo inp2" name="attr_karma_max" maxlength="2" readonly="readonly"/></div>
+		<div class="cinfoData"><input type="text" class="cinfo inp2" name="attr_karma" maxlength="2" />(<input type="text" class="cinfo inp2" name="attr_karma-max" maxlength="2" readonly="readonly"/>)</div>
 	</div>
 	<div class="statRow">
 		<div class="cinfoLabel">Total XP</div>
@@ -148,7 +148,7 @@
 	<div class="statRow">
 		<div class="vStatsLabel">Max HPs:</div>
 		<div class="vStatsData">
-			base: <input type="text" class="vstat inp3" name="attr_hp-base" maxlength="3" readonly="readonly" />
+			<input type="hidden" class="vstat inp3" name="attr_hp-base" maxlength="3" readonly="readonly" />
 			mod: <input type="text" class="vstat inp3" name="attr_hp-adj" maxlength="3" />
 			tot: <input type="text" class="vstat inp3" name="attr_hp-tot" maxlength="3" readonly="readonly" />
 		</div>
@@ -156,7 +156,7 @@
 	<div class="statRow">
 		<div class="vStatsLabel">Max STAM:</div>
 		<div class="vStatsData">
-			base: <input type="text" class="vstat inp3" name="attr_stam-base" maxlength="3" readonly="readonly" />
+			<input type="hidden" class="vstat inp3" name="attr_stam-base" maxlength="3" readonly="readonly" />
 			mod: <input type="text" class="vstat inp3" name="attr_stam-adj" maxlength="3" />
 			tot: <input type="text" class="vstat inp3" name="attr_stam-tot" maxlength="3" readonly="readonly" />
 		</div>
@@ -164,7 +164,7 @@
 	<div class="statRow">
 		<div class="vStatsLabel">Stun/Pain:</div>
 		<div class="vStatsData">
-			base: <input type="text" class="vstat inp3" name="attr_stunpain-base" maxlength="3" readonly="readonly" />
+			<input type="hidden" class="vstat inp3" name="attr_stunpain-base" maxlength="3" readonly="readonly" />
 			mod: <input type="text" class="vstat inp3" name="attr_stunpain-adj" maxlength="3" />
 			tot: <input type="text" class="vstat inp3" name="attr_stunpain-tot" maxlength="3" readonly="readonly" />
 		</div>
@@ -175,27 +175,27 @@
 	<div class="statRow">
 		<div style="font-weight: bold;">Stamina Recovery Rate:</div>
 		<div class="vStatsData">
-			Base: <input type="text" class="vstat inp3" name="attr_stamrec-base" maxlength="3" />
+			<input type="hidden" class="vstat inp3" name="attr_stamrec-base" maxlength="3" />
 			mod: <input type="text" class="vstat inp3" name="attr_stamrec-conadj" maxlength="3" />
-			<input type="text" class="vstat inp3" name="attr_stunpain-tot" maxlength="3" />/hour sleep
+			<input type="text" class="vstat inp3" name="attr_stamrec-tot" maxlength="3" />/hour sleep
 		</div>
 	</div>
 	<div class="statRow">
 		<div style="font-weight: bold; display: inline-block">Wind Recovery:</div>
 		<div class="vStatsData">
-			<input type="text" class="vstat inp3" name="attr_windpercent" maxlength="2" />%
+			<input type="text" class="vstat inp3" name="attr_wind-percent" value="20" maxlength="2" />%
 			( <input type="text" class="vstat inp3" name="attr_windstam" maxlength="3"  readonly="readonly" /> )
 		</div>
 	</div>
 	<div class="statRow">
 		<div class="vStatsLabel" style="vertical-align: top;">Healing Rate:</div>
 		<div class="vStatsData">
-			Healing Adj. <input type="text" class="vstat inp3" name="attr_healing-adj" maxlength="2" />
-			Med Mods<input type="text" class="vstat inp3" name="attr_healing-mod" maxlength="2" />%
-			<div>
-				Wounds: <input type="text" class="vstat healrate" name="attr_heal-wnd" readonly="readonly"/>
-				Severe: <input type="text" class="vstat healrate" name="attr_heal-svr" readonly="readonly"/>
-			</div>
+			Con. Mod <input type="text" class="vstat inp3" name="attr_healing-adj" maxlength="2" />
+			Med Mods<input type="text" class="vstat inp3" name="attr_healing-medmod" maxlength="2" />
+		</div>
+		<div>
+			Wounds: <input type="text" class="vstat healrate" name="attr_heal-wnd" readonly="readonly"/>
+			Severe: <input type="text" class="vstat healrate" name="attr_heal-svr" readonly="readonly"/>
 		</div>
 	</div>
 </div> <!-- End vital stats section -->
@@ -221,11 +221,11 @@
 	</div>
 	<div class="statRow">
 		<div class="defLabel">Negative SIZ Adj:</div>
-		<div class="wideSM"><input type="text" class="comStat inp2" name="attr_dr-SIZ" /></div>
+		<div class="wideSM"><input type="text" class="comStat inp2" name="attr_dr-siz" /></div>
 	</div>
 	<div class="statRow">
 		<div class="defLabel">Honed AGL:</div>
-		<div class="wideSM"><input type="text" class="comStat inp2" name="attr_dr-AGL" /></div>
+		<div class="wideSM"><input type="text" class="comStat inp2" name="attr_dr-agl" /></div>
 	</div>
 	<div class="statRow">
 		<div class="defLabel">Other:</div>
@@ -241,25 +241,31 @@
 		<div class="defTwoCol">
 			<div class="statLabel">Defense Ratings</div>
 			<div class="statRow">
-				<div class="">Normal DR:</div>
+				<div class="defLabelSmall">Normal DR:</div>
+				<div class="inlineblock"> <input type="text" class="comStat inp2" name="attr_dr-normal" readonly="readonly" /></div>
 			</div>
 			<div class="statRow">
-				<div>Touch DR:</div>
+				<div class="defLabelSmall">Touch DR:</div>
+				<div class="inlineblock"><input type="text" class="comStat inp2" name="attr_dr-touch" readonly="readonly" /></div>
 			</div>
 			<div class="statRow">
-				<div>No AGL DR:</div>
+				<div class="defLabelSmall">No AGL DR:</div>
+				<div class="inlineblock"><input type="text" class="comStat inp2" name="attr_dr-no-agl" readonly="readonly" /></div>
 			</div>
 		</div>
 		<div class="defTwoCol">
 			<div class="statLabel">Resistances</div>
 			<div class="statRow">
-				<div>Mental:</div>
+				<div class="defLabelSmall">Mental:</div>
+				<div class="inlineblock"><input type="text" class="comStat inp2" name="attr_resist-mental" readonly="readonly" /></div>
 			</div>
 			<div class="statRow">
-				<div>Magic:</div>
+				<div class="defLabelSmall">Magic:</div>
+				<div class="inlineblock"><input type="text" class="comStat inp2" name="attr_resist-Magic" readonly="readonly" /></div>
 			</div>
 			<div class="statRow">
-				<div>Fear:</div>
+				<div class="defLabelSmall">Fear:</div>
+				<div class="inlineblock"><input type="text" class="comStat inp2" name="attr_resist-fear" readonly="readonly" /></div>
 			</div>
 		</div>
 	</div>

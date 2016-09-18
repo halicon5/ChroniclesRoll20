@@ -1,5 +1,5 @@
 .sheet input[type='text'] {font-size: .9em;
-			height: 12px;
+    		height: 12px;
 			padding: 3px}
 
 div.sheet-attributesSection, div.sheet-charInfoSection, div.sheet-charVitalStatsSection, div.sheet-defenseSummary {display: inline-block;
@@ -11,7 +11,7 @@ div.sheet-attributesSection, div.sheet-charInfoSection, div.sheet-charVitalStats
 table.sheet-attributeSection, table.sheet-charInfoSection {border-collapse: collapse;
 						border: none;}
 
-
+div.sheet-inlineblock {display: inline-block;}
 
 
 div.sheet-statHeaderRow {background-color: #aa7939;
@@ -40,7 +40,7 @@ div.sheet-wideSM {width: 70px; display: inline-block;}
 input.sheet-inpAttr {width: 2.5em; height: 24px;}
 input.sheet-cinfo, input.sheet-vstat, input.sheet-comStat {height: 24px;}
 
-input.sheet-healrate {height: 24px; width: 50px;}
+input.sheet-healrate {height: 24px; width: 90px;}
 
 div.sheet-cinfoLabel {display:inline-block;
 				width: 90px;
@@ -62,7 +62,10 @@ div.sheet-defTwoCol {display:inline-block;
 							font-weight:bold;
 							width: 120px;
 							text-align: center;}
-
+div.sheet-defLabelSmall {display:inline-block;
+					font-weight:bold;
+					width: 80px;
+					text-align: right;}
 
 .charsheet table td {text-align: left;
 					padding-right: 2px}
