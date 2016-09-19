@@ -1,18 +1,19 @@
 <script type="text/worker">
 var cs = {}; // create namesheet for the chonicles sheet
 
-increm = 0; // generic incrementer variable we will reuse. 
 
 
 cs.initialize = function() {
-	console.log("CHRON cs.initialize")
+	console.log("CHRON cs.initialize");
 
 	this.configAttribs();
 	this.configLookupTables();
+	this.configBuildSkillTables();
 	this.configManualMods();
 	this.configDerivedStats();
 	this.assignAttributeChangeTriggers();
 	this.assignManualModChangeTriggers();
+	this.assignSkillChangeTriggers();
 }
 
 cs.configAttribs = function() {
@@ -71,6 +72,85 @@ cs.configLookupTables = function() {
 	this.healingRates[22] = 	{ "lw": "5 per round",	 "sw": "1 per round",	 "conrange": "64-66"};
 	this.healingRates[23] = 	{ "lw": "8 per round",	 "sw": "2 per round",	 "conrange": "67-69"};
 	this.healingRates[24] = 	{ "lw": "10 per round",	 "sw": "3 per round",	 "conrange": "70+"};
+}
+
+cs.configBuildSkillTables = function() {
+	this.skillList = [];
+
+	this.skillList.push( { "skillName": "Melee", 	"mod":"agl", 	"xpMult":8, 	"safeName":"melee"	} );
+	this.skillList.push( { "skillName": "Dodge", 	"mod":"ref", 	"xpMult":8, 	"safeName":"dodge"	} );
+	this.skillList.push( { "skillName": "Aim", 	"mod":"per", 	"xpMult":8, 	"safeName":"aim"	} );
+	this.skillList.push( { "skillName": "Ethereal Accuracy", 	"mod":"rea", 	"xpMult":4, 	"safeName":"ethereal_accuracy"	} );
+				
+				
+	this.skillList.push( { "skillName": "Spot", 	"mod":"per", 	"xpMult":1, 	"safeName":"spot"	} );
+	this.skillList.push( { "skillName": "Listen", 	"mod":"per", 	"xpMult":1, 	"safeName":"listen"	} );
+	this.skillList.push( { "skillName": "Smell", 	"mod":"per", 	"xpMult":1, 	"safeName":"smell"	} );
+	this.skillList.push( { "skillName": "Search", 	"mod":"per", 	"xpMult":1, 	"safeName":"search"	} );
+	this.skillList.push( { "skillName": "Resist Magic", 	"mod":"spir", 	"xpMult":2, 	"safeName":"resist_magic"	} );
+	this.skillList.push( { "skillName": "Resist Mental", 	"mod":"will", 	"xpMult":2, 	"safeName":"resist_mental"	} );
+	this.skillList.push( { "skillName": "Resist Fear", 	"mod":"*", 	"xpMult":2, 	"safeName":"resist_fear"	} );
+	this.skillList.push( { "skillName": "Concentration", 	"mod":"will", 	"xpMult":1, 	"safeName":"concentration"	} );
+				
+				
+	this.skillList.push( { "skillName": "Athletics", 	"mod":"*", 	"xpMult":2, 	"safeName":"athletics"	} );
+	this.skillList.push( { "skillName": "Climbing", 	"mod":"agl", 	"xpMult":1, 	"safeName":"climbing"	} );
+	this.skillList.push( { "skillName": "Fast Draw", 	"mod":"ref", 	"xpMult":2, 	"safeName":"fast_draw"	} );
+	this.skillList.push( { "skillName": "Gymnastics", 	"mod":"agl", 	"xpMult":2, 	"safeName":"gymnastics"	} );
+	this.skillList.push( { "skillName": "Hide", 	"mod":"per", 	"xpMult":2, 	"safeName":"hide"	} );
+	this.skillList.push( { "skillName": "Move Silently", 	"mod":"*", 	"xpMult":2, 	"safeName":"move_silently"	} );
+	this.skillList.push( { "skillName": "Sleight of Hand", 	"mod":"agl", 	"xpMult":2, 	"safeName":"sleight_of_hand"	} );
+	this.skillList.push( { "skillName": "Speed Load", 	"mod":"agl", 	"xpMult":2, 	"safeName":"speed_load"	} );
+	this.skillList.push( { "skillName": "Swim", 	"mod":"str", 	"xpMult":1, 	"safeName":"swim"	} );
+				
+				
+	this.skillList.push( { "skillName": "Deceit", 	"mod":"rea", 	"xpMult":2, 	"safeName":"deceit"	} );
+	this.skillList.push( { "skillName": "Determine Motivation", 	"mod":"rea", 	"xpMult":1, 	"safeName":"determine_motivation"	} );
+	this.skillList.push( { "skillName": "Disguise", 	"mod":"per", 	"xpMult":2, 	"safeName":"disguise"	} );
+	this.skillList.push( { "skillName": "Information Gathering", 	"mod":"rea", 	"xpMult":1, 	"safeName":"information_gathering"	} );
+	this.skillList.push( { "skillName": "Intimidation", 	"mod":"*", 	"xpMult":2, 	"safeName":"intimidation"	} );
+	this.skillList.push( { "skillName": "Persuasion", 	"mod":"rea", 	"xpMult":1, 	"safeName":"persuasion"	} );
+	this.skillList.push( { "skillName": "Performance", 	"mod":"per", 	"xpMult":1, 	"safeName":"performance"	} );
+	this.skillList.push( { "skillName": "Street Savvy", 	"mod":"rea", 	"xpMult":2, 	"safeName":"street_savvy"	} );
+				
+				
+	this.skillList.push( { "skillName": "Alchemy", 	"mod":"rea", 	"xpMult":2, 	"safeName":"alchemy"	} );
+	this.skillList.push( { "skillName": "Appraisal", 	"mod":"per", 	"xpMult":1, 	"safeName":"appraisal"	} );
+	this.skillList.push( { "skillName": "Art", 	"mod":"per", 	"xpMult":1, 	"safeName":"art"	} );
+	this.skillList.push( { "skillName": "Animal Handling", 	"mod":"will", 	"xpMult":2, 	"safeName":"animal_handling"	} );
+	this.skillList.push( { "skillName": "Boyer/Fletcher", 	"mod":"rea", 	"xpMult":2, 	"safeName":"boyer_fletcher"	} );
+	this.skillList.push( { "skillName": "Disarm/Create Trap", 	"mod":"rea", 	"xpMult":2, 	"safeName":"disarm_create_trap"	} );
+	this.skillList.push( { "skillName": "First Aid", 	"mod":"rea", 	"xpMult":1, 	"safeName":"first_aid"	} );
+	this.skillList.push( { "skillName": "Flora/Fauna", 	"mod":"rea", 	"xpMult":1, 	"safeName":"flora_fauna"	} );
+	this.skillList.push( { "skillName": "Forgery", 	"mod":"per", 	"xpMult":2, 	"safeName":"forgery"	} );
+	this.skillList.push( { "skillName": "Gunsmith", 	"mod":"rea", 	"xpMult":2, 	"safeName":"gunsmith"	} );
+	this.skillList.push( { "skillName": "Herbalism", 	"mod":"rea", 	"xpMult":2, 	"safeName":"herbalism"	} );
+	this.skillList.push( { "skillName": "Hunting/Fishing", 	"mod":"per", 	"xpMult":1, 	"safeName":"hunting_fishing"	} );
+	this.skillList.push( { "skillName": "Investigations", 	"mod":"rea", 	"xpMult":2, 	"safeName":"investigations"	} );
+	this.skillList.push( { "skillName": "Lock Picking", 	"mod":"rea", 	"xpMult":2, 	"safeName":"lock_picking"	} );
+	this.skillList.push( { "skillName": "Medicine", 	"mod":"rea", 	"xpMult":2, 	"safeName":"medicine"	} );
+	this.skillList.push( { "skillName": "Meditation", 	"mod":"will", 	"xpMult":2, 	"safeName":"meditation"	} );
+	this.skillList.push( { "skillName": "Mechanics", 	"mod":"rea", 	"xpMult":1, 	"safeName":"mechanics"	} );
+	this.skillList.push( { "skillName": "Research", 	"mod":"rea", 	"xpMult":1, 	"safeName":"research"	} );
+	this.skillList.push( { "skillName": "Siege Weapon", 	"mod":"rea", 	"xpMult":2, 	"safeName":"siege_weapon"	} );
+	this.skillList.push( { "skillName": "Smithing", 	"mod":"rea", 	"xpMult":2, 	"safeName":"smithing"	} );
+	this.skillList.push( { "skillName": "Spellcraft", 	"mod":"rea", 	"xpMult":2, 	"safeName":"spellcraft"	} );
+	this.skillList.push( { "skillName": "Survival", 	"mod":"per", 	"xpMult":1, 	"safeName":"survival"	} );
+	this.skillList.push( { "skillName": "Tracking", 	"mod":"per", 	"xpMult":2, 	"safeName":"tracking"	} );
+
+	this.skillHash = {};
+	this.honedDerivedSkills = {};
+	for (var i = 0; i < this.skillList.length; i++) {
+		this.skillHash[this.skillList[i].safeName] = this.skillList[i];
+		
+		if (this.skillList[i].mod !== "*") {
+			if (!this.honedDerivedSkills[this.skillList[i].mod]) {
+				this.honedDerivedSkills[this.skillList[i].mod] = [];
+			}
+			this.honedDerivedSkills[this.skillList[i].mod].push( {"safeName": this.skillList[i].safeName } );
+		}
+	}
+
 }
 
 cs.configManualMods = function() {
@@ -187,6 +267,32 @@ cs.assignManualModChangeTriggers = function() {
 	on(cs.dynamManualModChangeString, cs.processChangedManualMod);
 }
 
+cs.assignSkillChangeTriggers = function() {
+	console.log("CHRON: cs.assignSkillXPChangeTriggers");
+	this.dynamSkillXPChangeString = "";
+	this.dynamSkillRankChangeString = "";
+	this.dynamSkillAttribChangeString = "";
+	this.dynamSkillManModChangeString = "";
+	var bigString = ""
+
+	for (var i = 0; i < this.skillList.length; i++) {
+		this.dynamSkillXPChangeString += "change:sk-" + this.skillList[i].safeName + "-xp ";
+		this.dynamSkillRankChangeString += "change:sk-" + this.skillList[i].safeName + "-rank ";
+		this.dynamSkillAttribChangeString += "change:sk-" + this.skillList[i].safeName + "-attrmod ";
+		this.dynamSkillManModChangeString += "change:sk-" + this.skillList[i].safeName + "-manmod ";
+	}
+
+	console.log(this.dynamSkillXPChangeString);
+	console.log(this.dynamSkillRankChangeString);
+	console.log(this.dynamSkillAttribChangeString);
+	console.log(this.dynamSkillManModChangeString);
+
+	bigString = cs.dynamSkillRankChangeString + cs.dynamSkillAttribChangeString + cs.dynamSkillManModChangeString;
+
+	on(cs.dynamSkillXPChangeString, cs.processSkillXPChange);
+	on( bigString , cs.processSkillChange);
+
+}
 
 cs.processChangedAttribute = function(e) {
 	console.log("CHRON: cs.processChangedAttribute");
@@ -203,9 +309,10 @@ cs.processChangedAttribAdj = function(e) {
 
 cs.processChangedHonedAttrib = function(e) {
 	console.log("CHRON: cs.processChangedHonedAttrib");
-	console.log(e);
+//	console.log(e);
 	cs.setHonedWithinLimits(e);
 	cs.setDerivedStats(e);
+	cs.setHonedSkillMods(e);
 }
 
 cs.processChangedManualMod = function(e) {
@@ -268,6 +375,53 @@ cs.setDerivedStats = function(e) {
 	}
 
 }
+
+cs.setHonedSkillMods = function(e) {
+	console.log("CHRON: cs.setHonedSkillMods " + e.sourceAttribute);
+	var eHoned = e.sourceAttribute.replace("a-","");
+	console.log("CHRON before closure: eHoned");
+
+	// using a closure here to do this more efficiently and call getAttrs only once.
+	if (cs.honedDerivedSkills[eHoned]) {
+		(function (honed, e) {
+			console.log(honed);
+			console.log(e);
+			getAttrs([e.sourceAttribute], function(v) {
+				cs.setSkillsAttribModStandard(e, honed, v[e.sourceAttribute]);
+			} );
+		}(eHoned, e) );
+	}
+}
+
+// The upcoming block of skills mod functions all must have at least e as the first parameter.
+cs.setSkillsAttribModStandard = function(e, honed, attrMod) { 
+	var honed = e.sourceAttribute.replace("a-","");
+	attrMod = cs.getIntegerValue(attrMod,0);
+	var targName;
+	var targObj = {};
+	var shct = cs.honedDerivedSkills[honed];
+	if( shct && shct.length > 0 ) { 
+		for (var i = 0; i < shct.length; i++) {
+			targName = "sk-" + shct[i].safeName + "-attrmod";
+			targObj[targName] = attrMod;
+		}
+		setAttrs(targObj);
+	}
+}
+
+cs.processSkillChange = function(e) {
+	var skillName = e.sourceAttribute.replace("-attrmod","");
+	skillName = skillName.replace("-manmod","");
+	skillName = skillName.replace("-rank","");
+	getAttrs([skillName + "-attrmod", skillName + "-manmod", skillName + "-rank"], function(v) {
+		var targObj = {};
+		targObj[skillName + "-tot"] = cs.getIntegerValue(v[skillName + "-attrmod"],0) + cs.getIntegerValue(v[skillName + "-manmod"], 0) + cs.getIntegerValue( v[skillName + "-rank"],0);
+		console.log(v);
+		console.log(targObj);
+		setAttrs(targObj);
+	});
+}
+
 
 cs.getIntegerValue = function(value, assumed) {
 	if (value === undefined && assumed !== undefined) {
@@ -488,5 +642,64 @@ cs.calc_healingRates = function(e) {
 	});
 }
 
+
+cs.sanitizeSkillEventSourceAttribute = function(e) {
+	if (e.sourceAttribute && e.sourceAttribute.replace) {
+		var sk = e.sourceAttribute.replace("sk-","");
+		sk = sk.replace("-xp","");
+		sk = sk.replace("-attrmod","");
+		sk = sk.replace("-manmod","");
+		sk = sk.replace("-rank","");
+		return sk;
+	} else {
+		return e.sourceAttribute;
+	}
+}
+
+
+cs.getRankFromXPvalue = function(xp,xpMult) {
+	xp = cs.getIntegerValue(xp,0);
+	xpMult = cs.getIntegerValue(xpMult,1);
+	var realXp = Math.floor(xp/xpMult);
+	var xpPile = 0;
+	var rank = 0;
+	// 1 5 10 20
+	for (var i = 1; i <= 30 && realXp >= xpPile; i++) {
+		if (i <= 5) {
+		  xpPile += 1; 		
+		} else if (i <= 10) {
+		  xpPile += 5; 		
+		} else if (i <= 15) {
+		  xpPile += 10;		
+		} else {
+		  xpPile += 20;		
+		}
+
+		if (realXp >= xpPile) {
+		  rank++;		
+		}
+	}
+	return rank;
+}
+
+
+cs.processSkillXPChange = function(e) {
+	console.log("CHRON: cs.processSkillXPChange " + e.sourceAttribute);
+	//var sksn = cs.sanitizeSkillEventSourceAttribute(e);
+	getAttrs([e.sourceAttribute], function(v) {
+		var sksn = cs.sanitizeSkillEventSourceAttribute(e);
+		var rank = 0;
+		if (cs.skillHash[sksn]) {
+			rank = cs.getRankFromXPvalue(v[e.sourceAttribute],cs.skillHash[sksn].xpMult);
+		} else {
+			rank = 0;
+		}
+		var targObj = {};
+		targObj["sk-" + sksn + "-rank"] = rank;
+		setAttrs(targObj);
+	});
+}
+
 cs.initialize();
+
 </script>

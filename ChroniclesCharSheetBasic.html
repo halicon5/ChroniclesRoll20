@@ -7,266 +7,346 @@
 	Character Name: <input name="characterName"/> Race: <input name="a_characterRace"/>
 </div>
 
-<div class="attributesSection">
-	<table class="attributesSection">
-		<tr class="statHeaderRow">
-			<th>Attribute</th>
-			<th>Rank</th>
-			<th>Adj.</th>
-			<th>Honed</th>
-		</tr>
-		<tr class="statRow">
-			<td class="attribName statLabel wideSM">Strength</td>
-			<td><input type="text" class="inpAttr" name="attr_a-strength" size="2" maxlength="2" /></td>
-			<td><input type="text" class="inpAttr" name="attr_a-strength-adj" size="2" maxlength="3" readonly="readonly"/></td>
-			<td><input type="text" class="inpAttr" name="attr_str" size="2" maxlength="3" />STR</td>
-			 
-		</tr>  
-		<tr class="statRow">
-			<td class="attribName statLabel wideSM">Size</td>
-			<td><input type="text" class="inpAttr" name="attr_a-size" size="2" maxlength="2" /></td>
-			<td><input type="text" class="inpAttr" name="attr_a-size-adj" size="2" maxlength="3" readonly="readonly"/></td>
-			<td><input type="text" class="inpAttr" name="attr_siz" size="2" maxlength="3" />SIZ</td>
-			 
-		</tr>  
-		<tr class="statRow">
-			<td class="attribName statLabel wideSM">Agility</td>
-			<td><input type="text" class="inpAttr" name="attr_a-agility" size="2" maxlength="2" /></td>
-			<td><input type="text" class="inpAttr" name="attr_a-agility-adj" size="2" maxlength="3" readonly="readonly"/></td>
-			<td><input type="text" class="inpAttr" name="attr_agl" size="2" maxlength="3" />AGL</td>
-			 
-		</tr> 
-		<tr class="statRow">
-			<td class="attribName statLabel wideSM">Reflexes</td>
-			<td><input type="text" class="inpAttr" name="attr_a-reflexes" size="2" maxlength="2" /></td>
-			<td><input type="text" class="inpAttr" name="attr_a-reflexes-adj" size="2" maxlength="3" readonly="readonly" /></td>
-			<td><input type="text" class="inpAttr" name="attr_ref" size="2" maxlength="3" />REF</td>
-			 
-		</tr> 
-		<tr class="statRow">
-			<td class="attribName statLabel wideSM">Constitution</td>
-			<td><input type="text" class="inpAttr" name="attr_a-constitution" size="2" maxlength="2" /></td>
-			<td><input type="text" class="inpAttr" name="attr_a-constitution-adj" size="2" maxlength="3" readonly="readonly"/></td>
-			<td><input type="text" class="inpAttr" name="attr_con" size="2" maxlength="3" />CON</td>
-			 
-		</tr>
-		<tr class="statRow">
-			<td class="attribName statLabel wideSM">Fortitude</td>
-			<td><input type="text" class="inpAttr" name="attr_a-fortitude" size="2" maxlength="2" /></td>
-			<td><input type="text" class="inpAttr" name="attr_a-fortitude-adj" size="2" maxlength="3" readonly="readonly"/></td>
-			<td><input type="text" class="inpAttr" name="attr_fort" size="2" maxlength="3" />FORT</td>
-			 
-		</tr>
-		<tr class="statRow">
-			<td class="attribName statLabel wideSM">Reasoning</td>
-			<td><input type="text" class="inpAttr" name="attr_a-reasoning" size="2" maxlength="2" /></td>
-			<td><input type="text" class="inpAttr" name="attr_a-reasoning-adj" size="2" maxlength="3" readonly="readonly"/></td>
-			<td><input type="text" class="inpAttr" name="attr_rea" size="2" maxlength="3" />REA</td>
-			 
-		</tr>
-		<tr class="statRow">
-			<td class="attribName statLabel wideSM">Willpower</td>
-			<td><input type="text" class="inpAttr" name="attr_a-willpower" size="2" maxlength="2" /></td>
-			<td><input type="text" class="inpAttr" name="attr_a-willpower-adj" size="2" maxlength="3" readonly="readonly"/></td>
-			<td><input type="text" class="inpAttr" name="attr_will" size="2" maxlength="3" />WILL</td>
-			 
-		</tr>
-		<tr class="statRow">
-			<td class="attribName statLabel wideSM">Spirit</td>
-			<td><input type="text" class="inpAttr" name="attr_a-spirit" size="2" maxlength="2" /></td>
-			<td><input type="text" class="inpAttr" name="attr_a-spirit-adj" size="2" maxlength="3" readonly="readonly"/></td>
-			<td><input type="text" class="inpAttr" name="attr_spir" size="2" maxlength="3" />SPIR</td>
-			 
-		</tr>
-		<tr class="statRow">
-			<td class="attribName statLabel wideSM">Perception</td>
-			<td><input type="text" class="inpAttr" name="attr_a-perception" size="2" maxlength="2" /></td>
-			<td><input type="text" class="inpAttr" name="attr_a-perception-adj" size="2" maxlength="3" readonly="readonly"/></td>
-			<td><input type="text" class="inpAttr" name="attr_per" size="2" maxlength="3" />PER</td>
-			 
-		</tr>
-	</table>
-</div> <!-- End Attributes Section -->
+<span><b>Show: </b></span>
+<input type="radio" class="page-core" name="attr_pagetab" value="page-core"><div class="tab"> Core Stats</div>
+<input type="radio" class="page-skills" name="attr_pagetab" value="page-skills"><div class="tab"> Skills</div>
+<input type="radio" class="page-combat" name="attr_pagetab" value="page-combat"><div class="tab"> Combat Info</div>
+
+<div class="panel page-core">
+	<div class="attributesSection">
+		<table class="attributesSection">
+			<tr class="statHeaderRow">
+				<th>Attribute</th>
+				<th>Rank</th>
+				<th>Adj.</th>
+				<th>Honed</th>
+			</tr>
+			<tr class="statRow">
+				<td class="attribName statLabel wideSM">Strength</td>
+				<td><input type="text" class="inpAttr" name="attr_a-strength" size="2" maxlength="2" /></td>
+				<td><input type="text" class="inpAttr" name="attr_a-strength-adj" size="2" maxlength="3" readonly="readonly"/></td>
+				<td><input type="text" class="inpAttr" name="attr_str" size="2" maxlength="3" />STR</td>
+				 
+			</tr>  
+			<tr class="statRow">
+				<td class="attribName statLabel wideSM">Size</td>
+				<td><input type="text" class="inpAttr" name="attr_a-size" size="2" maxlength="2" /></td>
+				<td><input type="text" class="inpAttr" name="attr_a-size-adj" size="2" maxlength="3" readonly="readonly"/></td>
+				<td><input type="text" class="inpAttr" name="attr_siz" size="2" maxlength="3" />SIZ</td>
+				 
+			</tr>  
+			<tr class="statRow">
+				<td class="attribName statLabel wideSM">Agility</td>
+				<td><input type="text" class="inpAttr" name="attr_a-agility" size="2" maxlength="2" /></td>
+				<td><input type="text" class="inpAttr" name="attr_a-agility-adj" size="2" maxlength="3" readonly="readonly"/></td>
+				<td><input type="text" class="inpAttr" name="attr_agl" size="2" maxlength="3" />AGL</td>
+				 
+			</tr> 
+			<tr class="statRow">
+				<td class="attribName statLabel wideSM">Reflexes</td>
+				<td><input type="text" class="inpAttr" name="attr_a-reflexes" size="2" maxlength="2" /></td>
+				<td><input type="text" class="inpAttr" name="attr_a-reflexes-adj" size="2" maxlength="3" readonly="readonly" /></td>
+				<td><input type="text" class="inpAttr" name="attr_ref" size="2" maxlength="3" />REF</td>
+				 
+			</tr> 
+			<tr class="statRow">
+				<td class="attribName statLabel wideSM">Constitution</td>
+				<td><input type="text" class="inpAttr" name="attr_a-constitution" size="2" maxlength="2" /></td>
+				<td><input type="text" class="inpAttr" name="attr_a-constitution-adj" size="2" maxlength="3" readonly="readonly"/></td>
+				<td><input type="text" class="inpAttr" name="attr_con" size="2" maxlength="3" />CON</td>
+				 
+			</tr>
+			<tr class="statRow">
+				<td class="attribName statLabel wideSM">Fortitude</td>
+				<td><input type="text" class="inpAttr" name="attr_a-fortitude" size="2" maxlength="2" /></td>
+				<td><input type="text" class="inpAttr" name="attr_a-fortitude-adj" size="2" maxlength="3" readonly="readonly"/></td>
+				<td><input type="text" class="inpAttr" name="attr_fort" size="2" maxlength="3" />FORT</td>
+				 
+			</tr>
+			<tr class="statRow">
+				<td class="attribName statLabel wideSM">Reasoning</td>
+				<td><input type="text" class="inpAttr" name="attr_a-reasoning" size="2" maxlength="2" /></td>
+				<td><input type="text" class="inpAttr" name="attr_a-reasoning-adj" size="2" maxlength="3" readonly="readonly"/></td>
+				<td><input type="text" class="inpAttr" name="attr_rea" size="2" maxlength="3" />REA</td>
+				 
+			</tr>
+			<tr class="statRow">
+				<td class="attribName statLabel wideSM">Willpower</td>
+				<td><input type="text" class="inpAttr" name="attr_a-willpower" size="2" maxlength="2" /></td>
+				<td><input type="text" class="inpAttr" name="attr_a-willpower-adj" size="2" maxlength="3" readonly="readonly"/></td>
+				<td><input type="text" class="inpAttr" name="attr_will" size="2" maxlength="3" />WILL</td>
+				 
+			</tr>
+			<tr class="statRow">
+				<td class="attribName statLabel wideSM">Spirit</td>
+				<td><input type="text" class="inpAttr" name="attr_a-spirit" size="2" maxlength="2" /></td>
+				<td><input type="text" class="inpAttr" name="attr_a-spirit-adj" size="2" maxlength="3" readonly="readonly"/></td>
+				<td><input type="text" class="inpAttr" name="attr_spir" size="2" maxlength="3" />SPIR</td>
+				 
+			</tr>
+			<tr class="statRow">
+				<td class="attribName statLabel wideSM">Perception</td>
+				<td><input type="text" class="inpAttr" name="attr_a-perception" size="2" maxlength="2" /></td>
+				<td><input type="text" class="inpAttr" name="attr_a-perception-adj" size="2" maxlength="3" readonly="readonly"/></td>
+				<td><input type="text" class="inpAttr" name="attr_per" size="2" maxlength="3" />PER</td>
+				 
+			</tr>
+		</table>
+	</div> <!-- End Attributes Section -->
 
 
-<div class="charInfoSection"> <!-- Start Character Info Section -->
-	<div class="statHeaderRow">
-		<div class="statLabel">Character Info</div>
-	</div>
-	<div class="statRow">
-		<div class="cinfoLabel">Age</div>
-		<div class="cinfoData"><input type="text" class="cinfo inp3" name="age" maxlegnth="3"/></div>
-	</div>
-	<div class="statRow">
-		<div class="cinfoLabel">Height</div>
-		<div class="cinfoData"><input type="text" class="cinfo inp4" name="attr_height" maxlength="6" /></div>
-	</div>
-	<div class="statRow">
-		<div class="cinfoLabel">Weight</div>
-		<div class="cinfoData"><input type="text" class="cinfo inp4" name="weight" maxlength="4"/></div>
-	</div>
-	<div class="statRow">
-		<div class="cinfoLabel">Lift/Haul</div>
-		<div class="cinfoData"><input type="text" class="cinfo inp4" name="attr_lift" maxlength="4" readonly="readonly"/>/<input type="text" class="cinfo inp4" name="attr_haul" maxlength="4" readonly="readonly"/></div>
-	</div>
-	<div class="statRow">
-		<div class="cinfoLabel">Minor Move</div>
-		<div class="cinfoData"><input type="hidden" class="cinfo inp2" name="attr_minorMove" maxlength="2" readonly="readonly"/> 
-			adj <input type="text" class="cinfo inp2" name="attr_minormove-adj" maxlength="2"/>
-			tot <input type="text" class="cinfo inp2" name="attr_minormove-tot" maxlength="2"/ readonly="readonly"></div>
-	</div>
-	<div class="statRow">
-		<div class="cinfoLabel">Major Move</div>
-		<div class="cinfoData"><input type="hidden" class="cinfo inp2" name="attr_majorMove" maxlength="2" readonly="readonly"/> 
-			adj <input type="text" class="cinfo inp2" name="attr_majormove-adj" maxlength="2"/>
-			tot <input type="text" class="cinfo inp2" name="attr_majormove-tot" maxlength="2" readonly="readonly"/>
+	<div class="charInfoSection"> <!-- Start Character Info Section -->
+		<div class="statHeaderRow">
+			<div class="statLabel">Character Info</div>
 		</div>
-	</div>
-	<div class="statRow">
-		<div class="cinfoLabel">Karma (max)</div>
-		<div class="cinfoData"><input type="text" class="cinfo inp2" name="attr_karma" maxlength="2" />(<input type="text" class="cinfo inp2" name="attr_karma-max" maxlength="2" readonly="readonly"/>)</div>
-	</div>
-	<div class="statRow">
-		<div class="cinfoLabel">Total XP</div>
-		<div class="cinfoData"><input type="text" class="cinfo inp5" name="attr_spentXP" maxlength="5"/></div>
-	</div>
-	<div class="statRow">
-		<div class="cinfoLabel">Spent XP</div>
-		<div class="cinfoData"><input type="text" class="cinfo inp5" name="attr_spentXP" maxlength="5"/></div>
-	</div>
-	<div class="statRow">
-		<div class="cinfoLabel">Unspent XP</div>
-		<div class="cinfoData"><input type="text" class="cinfo inp5" name="attr_spentXP" maxlength="5"/></div>
-	</div>
-</div> <!-- End Char Info Section -->
+		<div class="statRow">
+			<div class="cinfoLabel">Age</div>
+			<div class="cinfoData"><input type="text" class="cinfo inp3" name="age" maxlegnth="3"/></div>
+		</div>
+		<div class="statRow">
+			<div class="cinfoLabel">Height</div>
+			<div class="cinfoData"><input type="text" class="cinfo inp4" name="attr_height" maxlength="6" /></div>
+		</div>
+		<div class="statRow">
+			<div class="cinfoLabel">Weight</div>
+			<div class="cinfoData"><input type="text" class="cinfo inp4" name="weight" maxlength="4"/></div>
+		</div>
+		<div class="statRow">
+			<div class="cinfoLabel">Lift/Haul</div>
+			<div class="cinfoData"><input type="text" class="cinfo inp4" name="attr_lift" maxlength="4" readonly="readonly"/>/<input type="text" class="cinfo inp4" name="attr_haul" maxlength="4" readonly="readonly"/></div>
+		</div>
+		<div class="statRow">
+			<div class="cinfoLabel">Minor Move</div>
+			<div class="cinfoData"><input type="hidden" class="cinfo inp2" name="attr_minorMove" maxlength="2" readonly="readonly"/> 
+				adj <input type="text" class="cinfo inp2" name="attr_minormove-adj" maxlength="2"/>
+				tot <input type="text" class="cinfo inp2" name="attr_minormove-tot" maxlength="2"/ readonly="readonly"></div>
+		</div>
+		<div class="statRow">
+			<div class="cinfoLabel">Major Move</div>
+			<div class="cinfoData"><input type="hidden" class="cinfo inp2" name="attr_majorMove" maxlength="2" readonly="readonly"/> 
+				adj <input type="text" class="cinfo inp2" name="attr_majormove-adj" maxlength="2"/>
+				tot <input type="text" class="cinfo inp2" name="attr_majormove-tot" maxlength="2" readonly="readonly"/>
+			</div>
+		</div>
+		<div class="statRow">
+			<div class="cinfoLabel">Karma (max)</div>
+			<div class="cinfoData"><input type="text" class="cinfo inp2" name="attr_karma" maxlength="2" />(<input type="text" class="cinfo inp2" name="attr_karma-max" maxlength="2" readonly="readonly"/>)</div>
+		</div>
+		<div class="statRow">
+			<div class="cinfoLabel">Total XP</div>
+			<div class="cinfoData"><input type="text" class="cinfo inp5" name="attr_spentXP" maxlength="5"/></div>
+		</div>
+		<div class="statRow">
+			<div class="cinfoLabel">Spent XP</div>
+			<div class="cinfoData"><input type="text" class="cinfo inp5" name="attr_spentXP" maxlength="5"/></div>
+		</div>
+		<div class="statRow">
+			<div class="cinfoLabel">Unspent XP</div>
+			<div class="cinfoData"><input type="text" class="cinfo inp5" name="attr_spentXP" maxlength="5"/></div>
+		</div>
+	</div> <!-- End Char Info Section -->
 
 
-<div class="charVitalStatsSection">
-	<div class="statHeaderRow">
-		<div class="statLabel">Vital Statistics</div>
-	</div>
-	<div class="statRow">
-		<div class="vStatsLabel">Max HPs:</div>
-		<div class="vStatsData">
-			<input type="hidden" class="vstat inp3" name="attr_hp-base" maxlength="3" readonly="readonly" />
-			mod: <input type="text" class="vstat inp3" name="attr_hp-adj" maxlength="3" />
-			tot: <input type="text" class="vstat inp3" name="attr_hp-tot" maxlength="3" readonly="readonly" />
+	<div class="charVitalStatsSection">
+		<div class="statHeaderRow">
+			<div class="statLabel">Vital Statistics</div>
 		</div>
-	</div>
-	<div class="statRow">
-		<div class="vStatsLabel">Max STAM:</div>
-		<div class="vStatsData">
-			<input type="hidden" class="vstat inp3" name="attr_stam-base" maxlength="3" readonly="readonly" />
-			mod: <input type="text" class="vstat inp3" name="attr_stam-adj" maxlength="3" />
-			tot: <input type="text" class="vstat inp3" name="attr_stam-tot" maxlength="3" readonly="readonly" />
+		<div class="statRow">
+			<div class="vStatsLabel">Max HPs:</div>
+			<div class="vStatsData">
+				<input type="hidden" class="vstat inp3" name="attr_hp-base" maxlength="3" readonly="readonly" />
+				mod: <input type="text" class="vstat inp3" name="attr_hp-adj" maxlength="3" />
+				tot: <input type="text" class="vstat inp3" name="attr_hp-tot" maxlength="3" readonly="readonly" />
+			</div>
 		</div>
-	</div>
-	<div class="statRow">
-		<div class="vStatsLabel">Stun/Pain:</div>
-		<div class="vStatsData">
-			<input type="hidden" class="vstat inp3" name="attr_stunpain-base" maxlength="3" readonly="readonly" />
-			mod: <input type="text" class="vstat inp3" name="attr_stunpain-adj" maxlength="3" />
-			tot: <input type="text" class="vstat inp3" name="attr_stunpain-tot" maxlength="3" readonly="readonly" />
+		<div class="statRow">
+			<div class="vStatsLabel">Max STAM:</div>
+			<div class="vStatsData">
+				<input type="hidden" class="vstat inp3" name="attr_stam-base" maxlength="3" readonly="readonly" />
+				mod: <input type="text" class="vstat inp3" name="attr_stam-adj" maxlength="3" />
+				tot: <input type="text" class="vstat inp3" name="attr_stam-tot" maxlength="3" readonly="readonly" />
+			</div>
 		</div>
-	</div>
-	<div class="statRow">
-		<div style="text-align: center;">Recovery</div>
-	</div>
-	<div class="statRow">
-		<div style="font-weight: bold;">Stamina Recovery Rate:</div>
-		<div class="vStatsData">
-			<input type="hidden" class="vstat inp3" name="attr_stamrec-base" maxlength="3" />
-			mod: <input type="text" class="vstat inp3" name="attr_stamrec-conadj" maxlength="3" />
-			<input type="text" class="vstat inp3" name="attr_stamrec-tot" maxlength="3" />/hour sleep
+		<div class="statRow">
+			<div class="vStatsLabel">Stun/Pain:</div>
+			<div class="vStatsData">
+				<input type="hidden" class="vstat inp3" name="attr_stunpain-base" maxlength="3" readonly="readonly" />
+				mod: <input type="text" class="vstat inp3" name="attr_stunpain-adj" maxlength="3" />
+				tot: <input type="text" class="vstat inp3" name="attr_stunpain-tot" maxlength="3" readonly="readonly" />
+			</div>
 		</div>
-	</div>
-	<div class="statRow">
-		<div style="font-weight: bold; display: inline-block">Wind Recovery:</div>
-		<div class="vStatsData">
-			<input type="text" class="vstat inp3" name="attr_wind-percent" value="20" maxlength="2" />%
-			( <input type="text" class="vstat inp3" name="attr_windstam" maxlength="3"  readonly="readonly" /> )
+		<div class="statRow">
+			<div style="text-align: center;">Recovery</div>
 		</div>
-	</div>
-	<div class="statRow">
-		<div class="vStatsLabel" style="vertical-align: top;">Healing Rate:</div>
-		<div class="vStatsData">
-			Con. Mod <input type="text" class="vstat inp3" name="attr_healing-adj" maxlength="2" />
-			Med Mods<input type="text" class="vstat inp3" name="attr_healing-medmod" maxlength="2" />
+		<div class="statRow">
+			<div style="font-weight: bold;">Stamina Recovery Rate:</div>
+			<div class="vStatsData">
+				<input type="hidden" class="vstat inp3" name="attr_stamrec-base" maxlength="3" />
+				mod: <input type="text" class="vstat inp3" name="attr_stamrec-conadj" maxlength="3" />
+				<input type="text" class="vstat inp3" name="attr_stamrec-tot" maxlength="3" />/hour sleep
+			</div>
 		</div>
-		<div>
-			Wounds: <input type="text" class="vstat healrate" name="attr_heal-wnd" readonly="readonly"/>
-			Severe: <input type="text" class="vstat healrate" name="attr_heal-svr" readonly="readonly"/>
+		<div class="statRow">
+			<div style="font-weight: bold; display: inline-block">Wind Recovery:</div>
+			<div class="vStatsData">
+				<input type="text" class="vstat inp3" name="attr_wind-percent" value="20" maxlength="2" />%
+				( <input type="text" class="vstat inp3" name="attr_windstam" maxlength="3"  readonly="readonly" /> )
+			</div>
 		</div>
-	</div>
-</div> <!-- End vital stats section -->
+		<div class="statRow">
+			<div class="vStatsLabel" style="vertical-align: top;">Healing Rate:</div>
+			<div class="vStatsData">
+				Con. Mod <input type="text" class="vstat inp3" name="attr_healing-adj" maxlength="2" />
+				Med Mods<input type="text" class="vstat inp3" name="attr_healing-medmod" maxlength="2" />
+			</div>
+			<div>
+				Wounds: <input type="text" class="vstat healrate" name="attr_heal-wnd" readonly="readonly"/>
+				Severe: <input type="text" class="vstat healrate" name="attr_heal-svr" readonly="readonly"/>
+			</div>
+		</div>
+	</div> <!-- End vital stats section -->
+</div> <!-- End page-core -->
 
-<div class="defenseSummary">
-	<div class="statHeaderRow">
-		<div class="statLabel">Defense Summary</div>
-	</div>
-	<div class="statRow">
-		<div class="defLabel"></div>
-		<div class="wideSM">DR</div>
-		<div class="wideSM">Absorb</div>
-	</div>
-	<div class="statRow">
-		<div class="defLabel">Natural Defense:</div>
-		<div class="wideSM"><input type="text" class="comStat inp2" name="attr_dr-base" /></div>
-		<div class="wideSM"><input type="text" class="comStat inp2" name="attr_absorb-base" /></div>
-	</div>  
-	<div class="statRow">
-		<div class="defLabel">Armor:</div>
-		<div class="wideSM"><input type="text" class="comStat inp2" name="attr_dr-armor" /></div>
-		<div class="wideSM"><input type="text" class="comStat inp2" name="attr_absorb-armor" /></div>
-	</div>
-	<div class="statRow">
-		<div class="defLabel">Negative SIZ Adj:</div>
-		<div class="wideSM"><input type="text" class="comStat inp2" name="attr_dr-siz" /></div>
-	</div>
-	<div class="statRow">
-		<div class="defLabel">Honed AGL:</div>
-		<div class="wideSM"><input type="text" class="comStat inp2" name="attr_dr-agl" /></div>
-	</div>
-	<div class="statRow">
-		<div class="defLabel">Other:</div>
-		<div class="wideSM"><input type="text" class="comStat inp2" name="attr_dr-other" /></div>
-		<div class="wideSM"><input type="text" class="comStat inp2" name="attr_absorb-other" /></div>
-	</div>
-	<div class="statRow">
-		<div class="defLabel">Total:</div>
-		<div class="wideSM"><input type="text" class="comStat inp2big" name="attr_dr-total" /></div>
-		<div class="wideSM"><input type="text" class="comStat inp2big" name="attr_absorb-total" /></div>
-	</div>
-	<div class="statRow">
-		<div class="defTwoCol">
-			<div class="statLabel">Defense Ratings</div>
-			<div class="statRow">
-				<div class="defLabelSmall">Normal DR:</div>
-				<div class="inlineblock"> <input type="text" class="comStat inp2" name="attr_dr-normal" readonly="readonly" /></div>
+<div class="panel page-combat">
+	<div class="defenseSummary">
+		<div class="statHeaderRow">
+			<div class="statLabel">Defense Summary</div>
+		</div>
+		<div class="statRow">
+			<div class="defLabel"></div>
+			<div class="wideSM">DR</div>
+			<div class="wideSM">Absorb</div>
+		</div>
+		<div class="statRow">
+			<div class="defLabel">Natural Defense:</div>
+			<div class="wideSM"><input type="text" class="comStat inp2" name="attr_dr-base" /></div>
+			<div class="wideSM"><input type="text" class="comStat inp2" name="attr_absorb-base" /></div>
+		</div>  
+		<div class="statRow">
+			<div class="defLabel">Armor:</div>
+			<div class="wideSM"><input type="text" class="comStat inp2" name="attr_dr-armor" /></div>
+			<div class="wideSM"><input type="text" class="comStat inp2" name="attr_absorb-armor" /></div>
+		</div>
+		<div class="statRow">
+			<div class="defLabel">Negative SIZ Adj:</div>
+			<div class="wideSM"><input type="text" class="comStat inp2" name="attr_dr-siz" /></div>
+		</div>
+		<div class="statRow">
+			<div class="defLabel">Honed AGL:</div>
+			<div class="wideSM"><input type="text" class="comStat inp2" name="attr_dr-agl" /></div>
+		</div>
+		<div class="statRow">
+			<div class="defLabel">Other:</div>
+			<div class="wideSM"><input type="text" class="comStat inp2" name="attr_dr-other" /></div>
+			<div class="wideSM"><input type="text" class="comStat inp2" name="attr_absorb-other" /></div>
+		</div>
+		<div class="statRow">
+			<div class="defLabel">Total:</div>
+			<div class="wideSM"><input type="text" class="comStat inp2big" name="attr_dr-total" /></div>
+			<div class="wideSM"><input type="text" class="comStat inp2big" name="attr_absorb-total" /></div>
+		</div>
+		<div class="statRow">
+			<div class="defTwoCol">
+				<div class="statLabel">Defense Ratings</div>
+				<div class="statRow">
+					<div class="defLabelSmall">Normal DR:</div>
+					<div class="inlineblock"> <input type="text" class="comStat inp2" name="attr_dr-normal" readonly="readonly" /></div>
+				</div>
+				<div class="statRow">
+					<div class="defLabelSmall">Touch DR:</div>
+					<div class="inlineblock"><input type="text" class="comStat inp2" name="attr_dr-touch" readonly="readonly" /></div>
+				</div>
+				<div class="statRow">
+					<div class="defLabelSmall">No AGL DR:</div>
+					<div class="inlineblock"><input type="text" class="comStat inp2" name="attr_dr-no-agl" readonly="readonly" /></div>
+				</div>
 			</div>
-			<div class="statRow">
-				<div class="defLabelSmall">Touch DR:</div>
-				<div class="inlineblock"><input type="text" class="comStat inp2" name="attr_dr-touch" readonly="readonly" /></div>
-			</div>
-			<div class="statRow">
-				<div class="defLabelSmall">No AGL DR:</div>
-				<div class="inlineblock"><input type="text" class="comStat inp2" name="attr_dr-no-agl" readonly="readonly" /></div>
+			<div class="defTwoCol">
+				<div class="statLabel">Resistances</div>
+				<div class="statRow">
+					<div class="defLabelSmall">Mental:</div>
+					<div class="inlineblock"><input type="text" class="comStat inp2" name="attr_resist-mental" readonly="readonly" /></div>
+				</div>
+				<div class="statRow">
+					<div class="defLabelSmall">Magic:</div>
+					<div class="inlineblock"><input type="text" class="comStat inp2" name="attr_resist-Magic" readonly="readonly" /></div>
+				</div>
+				<div class="statRow">
+					<div class="defLabelSmall">Fear:</div>
+					<div class="inlineblock"><input type="text" class="comStat inp2" name="attr_resist-fear" readonly="readonly" /></div>
+				</div>
 			</div>
 		</div>
-		<div class="defTwoCol">
-			<div class="statLabel">Resistances</div>
-			<div class="statRow">
-				<div class="defLabelSmall">Mental:</div>
-				<div class="inlineblock"><input type="text" class="comStat inp2" name="attr_resist-mental" readonly="readonly" /></div>
-			</div>
-			<div class="statRow">
-				<div class="defLabelSmall">Magic:</div>
-				<div class="inlineblock"><input type="text" class="comStat inp2" name="attr_resist-Magic" readonly="readonly" /></div>
-			</div>
-			<div class="statRow">
-				<div class="defLabelSmall">Fear:</div>
-				<div class="inlineblock"><input type="text" class="comStat inp2" name="attr_resist-fear" readonly="readonly" /></div>
-			</div>
-		</div>
+	</div> <!-- End Defense Summary -->
+</div> <!-- End Page COmbat -->
+
+<div class="panel page-skills">
+	<div class="skillSection inlineblock">
+		<table class="skillSection">
+			<tr class="statHeaderRow"><th>Skill Name</th><th></th><th>Rank</th><th>Mod 1</th><th>Mod 2</th><th>Total</th><th>XP</th></tr>
+			<tr class="statRow">	<td class="skillLabel">Melee</td>	<td>agl</td>	<td><input type="text" readonly="readonly" class="inp2" name="attr_sk-melee-rank" /></td>	<td><input type="text" readonly="readonly" class="inp2" name="attr_sk-melee-attrmod" /></td>	<td><input type="text" class="inp2" name="attr_sk-melee-manmod" /></td>	<td><input type="text" readonly="readonly" class="inp2 skillTot" name="attr_sk-melee-tot" /></td>	<td>8x<input type="text" class="inp4" name="attr_sk-melee-xp" /></td>	</tr>
+			<tr class="statRow">	<td class="skillLabel">Dodge</td>	<td>ref</td>	<td><input type="text" readonly="readonly" class="inp2" name="attr_sk-dodge-rank" /></td>	<td><input type="text" readonly="readonly" class="inp2" name="attr_sk-dodge-attrmod" /></td>	<td><input type="text" class="inp2" name="attr_sk-dodge-manmod" /></td>	<td><input type="text" readonly="readonly" class="inp2 skillTot" name="attr_sk-dodge-tot" /></td>	<td>8x<input type="text" class="inp4" name="attr_sk-dodge-xp" /></td>	</tr>
+			<tr class="statRow">	<td class="skillLabel">Aim</td>	<td>per</td>	<td><input type="text" readonly="readonly" class="inp2" name="attr_sk-aim-rank" /></td>	<td><input type="text" readonly="readonly" class="inp2" name="attr_sk-aim-attrmod" /></td>	<td><input type="text" class="inp2" name="attr_sk-aim-manmod" /></td>	<td><input type="text" readonly="readonly" class="inp2 skillTot" name="attr_sk-aim-tot" /></td>	<td>8x<input type="text" class="inp4" name="attr_sk-aim-xp" /></td>	</tr>
+			<tr class="statRow">	<td class="skillLabel">Ethereal Accuracy</td>	<td>rea</td>	<td><input type="text" readonly="readonly" class="inp2" name="attr_sk-ethereal_accuracy-rank" /></td>	<td><input type="text" readonly="readonly" class="inp2" name="attr_sk-ethereal_accuracy-attrmod" /></td>	<td><input type="text" class="inp2" name="attr_sk-ethereal_accuracy-manmod" /></td>	<td><input type="text" readonly="readonly" class="inp2 skillTot" name="attr_sk-ethereal_accuracy-tot" /></td>	<td>4x<input type="text" class="inp4" name="attr_sk-ethereal_accuracy-xp" /></td>	</tr>
+											
+											
+			<tr class="statRow">	<td class="skillLabel">Spot</td>	<td>per</td>	<td><input type="text" readonly="readonly" class="inp2" name="attr_sk-spot-rank" /></td>	<td><input type="text" readonly="readonly" class="inp2" name="attr_sk-spot-attrmod" /></td>	<td><input type="text" class="inp2" name="attr_sk-spot-manmod" /></td>	<td><input type="text" readonly="readonly" class="inp2 skillTot" name="attr_sk-spot-tot" /></td>	<td>1x<input type="text" class="inp4" name="attr_sk-spot-xp" /></td>	</tr>
+			<tr class="statRow">	<td class="skillLabel">Listen</td>	<td>per</td>	<td><input type="text" readonly="readonly" class="inp2" name="attr_sk-listen-rank" /></td>	<td><input type="text" readonly="readonly" class="inp2" name="attr_sk-listen-attrmod" /></td>	<td><input type="text" class="inp2" name="attr_sk-listen-manmod" /></td>	<td><input type="text" readonly="readonly" class="inp2 skillTot" name="attr_sk-listen-tot" /></td>	<td>1x<input type="text" class="inp4" name="attr_sk-listen-xp" /></td>	</tr>
+			<tr class="statRow">	<td class="skillLabel">Smell</td>	<td>per</td>	<td><input type="text" readonly="readonly" class="inp2" name="attr_sk-smell-rank" /></td>	<td><input type="text" readonly="readonly" class="inp2" name="attr_sk-smell-attrmod" /></td>	<td><input type="text" class="inp2" name="attr_sk-smell-manmod" /></td>	<td><input type="text" readonly="readonly" class="inp2 skillTot" name="attr_sk-smell-tot" /></td>	<td>1x<input type="text" class="inp4" name="attr_sk-smell-xp" /></td>	</tr>
+			<tr class="statRow">	<td class="skillLabel">Search</td>	<td>per</td>	<td><input type="text" readonly="readonly" class="inp2" name="attr_sk-search-rank" /></td>	<td><input type="text" readonly="readonly" class="inp2" name="attr_sk-search-attrmod" /></td>	<td><input type="text" class="inp2" name="attr_sk-search-manmod" /></td>	<td><input type="text" readonly="readonly" class="inp2 skillTot" name="attr_sk-search-tot" /></td>	<td>1x<input type="text" class="inp4" name="attr_sk-search-xp" /></td>	</tr>
+			<tr class="statRow">	<td class="skillLabel">Resist Magic</td>	<td>spir</td>	<td><input type="text" readonly="readonly" class="inp2" name="attr_sk-resist_magic-rank" /></td>	<td><input type="text" readonly="readonly" class="inp2" name="attr_sk-resist_magic-attrmod" /></td>	<td><input type="text" class="inp2" name="attr_sk-resist_magic-manmod" /></td>	<td><input type="text" readonly="readonly" class="inp2 skillTot" name="attr_sk-resist_magic-tot" /></td>	<td>2x<input type="text" class="inp4" name="attr_sk-resist_magic-xp" /></td>	</tr>
+			<tr class="statRow">	<td class="skillLabel">Resist Mental</td>	<td>will</td>	<td><input type="text" readonly="readonly" class="inp2" name="attr_sk-resist_mental-rank" /></td>	<td><input type="text" readonly="readonly" class="inp2" name="attr_sk-resist_mental-attrmod" /></td>	<td><input type="text" class="inp2" name="attr_sk-resist_mental-manmod" /></td>	<td><input type="text" readonly="readonly" class="inp2 skillTot" name="attr_sk-resist_mental-tot" /></td>	<td>2x<input type="text" class="inp4" name="attr_sk-resist_mental-xp" /></td>	</tr>
+			<tr class="statRow">	<td class="skillLabel">Resist Fear</td>	<td>*</td>	<td><input type="text" readonly="readonly" class="inp2" name="attr_sk-resist_fear-rank" /></td>	<td><input type="text" readonly="readonly" class="inp2" name="attr_sk-resist_fear-attrmod" /></td>	<td><input type="text" class="inp2" name="attr_sk-resist_fear-manmod" /></td>	<td><input type="text" readonly="readonly" class="inp2 skillTot" name="attr_sk-resist_fear-tot" /></td>	<td>2x<input type="text" class="inp4" name="attr_sk-resist_fear-xp" /></td>	</tr>
+			<tr class="statRow">	<td class="skillLabel">Concentration</td>	<td>will</td>	<td><input type="text" readonly="readonly" class="inp2" name="attr_sk-concentration-rank" /></td>	<td><input type="text" readonly="readonly" class="inp2" name="attr_sk-concentration-attrmod" /></td>	<td><input type="text" class="inp2" name="attr_sk-concentration-manmod" /></td>	<td><input type="text" readonly="readonly" class="inp2 skillTot" name="attr_sk-concentration-tot" /></td>	<td>1x<input type="text" class="inp4" name="attr_sk-concentration-xp" /></td>	</tr>
+											
+											
+			<tr class="statRow">	<td class="skillLabel">Athletics</td>	<td>*</td>	<td><input type="text" readonly="readonly" class="inp2" name="attr_sk-athletics-rank" /></td>	<td><input type="text" readonly="readonly" class="inp2" name="attr_sk-athletics-attrmod" /></td>	<td><input type="text" class="inp2" name="attr_sk-athletics-manmod" /></td>	<td><input type="text" readonly="readonly" class="inp2 skillTot" name="attr_sk-athletics-tot" /></td>	<td>2x<input type="text" class="inp4" name="attr_sk-athletics-xp" /></td>	</tr>
+			<tr class="statRow">	<td class="skillLabel">Climbing</td>	<td>agl</td>	<td><input type="text" readonly="readonly" class="inp2" name="attr_sk-climbing-rank" /></td>	<td><input type="text" readonly="readonly" class="inp2" name="attr_sk-climbing-attrmod" /></td>	<td><input type="text" class="inp2" name="attr_sk-climbing-manmod" /></td>	<td><input type="text" readonly="readonly" class="inp2 skillTot" name="attr_sk-climbing-tot" /></td>	<td>1x<input type="text" class="inp4" name="attr_sk-climbing-xp" /></td>	</tr>
+			<tr class="statRow">	<td class="skillLabel">Fast Draw</td>	<td>ref</td>	<td><input type="text" readonly="readonly" class="inp2" name="attr_sk-fast_draw-rank" /></td>	<td><input type="text" readonly="readonly" class="inp2" name="attr_sk-fast_draw-attrmod" /></td>	<td><input type="text" class="inp2" name="attr_sk-fast_draw-manmod" /></td>	<td><input type="text" readonly="readonly" class="inp2 skillTot" name="attr_sk-fast_draw-tot" /></td>	<td>2x<input type="text" class="inp4" name="attr_sk-fast_draw-xp" /></td>	</tr>
+			<tr class="statRow">	<td class="skillLabel">Gymnastics</td>	<td>agl</td>	<td><input type="text" readonly="readonly" class="inp2" name="attr_sk-gymnastics-rank" /></td>	<td><input type="text" readonly="readonly" class="inp2" name="attr_sk-gymnastics-attrmod" /></td>	<td><input type="text" class="inp2" name="attr_sk-gymnastics-manmod" /></td>	<td><input type="text" readonly="readonly" class="inp2 skillTot" name="attr_sk-gymnastics-tot" /></td>	<td>2x<input type="text" class="inp4" name="attr_sk-gymnastics-xp" /></td>	</tr>
+			<tr class="statRow">	<td class="skillLabel">Hide</td>	<td>per</td>	<td><input type="text" readonly="readonly" class="inp2" name="attr_sk-hide-rank" /></td>	<td><input type="text" readonly="readonly" class="inp2" name="attr_sk-hide-attrmod" /></td>	<td><input type="text" class="inp2" name="attr_sk-hide-manmod" /></td>	<td><input type="text" readonly="readonly" class="inp2 skillTot" name="attr_sk-hide-tot" /></td>	<td>2x<input type="text" class="inp4" name="attr_sk-hide-xp" /></td>	</tr>
+			<tr class="statRow">	<td class="skillLabel">Move Silently</td>	<td>*</td>	<td><input type="text" readonly="readonly" class="inp2" name="attr_sk-move_silently-rank" /></td>	<td><input type="text" readonly="readonly" class="inp2" name="attr_sk-move_silently-attrmod" /></td>	<td><input type="text" class="inp2" name="attr_sk-move_silently-manmod" /></td>	<td><input type="text" readonly="readonly" class="inp2 skillTot" name="attr_sk-move_silently-tot" /></td>	<td>2x<input type="text" class="inp4" name="attr_sk-move_silently-xp" /></td>	</tr>
+			<tr class="statRow">	<td class="skillLabel">Sleight of Hand</td>	<td>agl</td>	<td><input type="text" readonly="readonly" class="inp2" name="attr_sk-sleight_of_hand-rank" /></td>	<td><input type="text" readonly="readonly" class="inp2" name="attr_sk-sleight_of_hand-attrmod" /></td>	<td><input type="text" class="inp2" name="attr_sk-sleight_of_hand-manmod" /></td>	<td><input type="text" readonly="readonly" class="inp2 skillTot" name="attr_sk-sleight_of_hand-tot" /></td>	<td>2x<input type="text" class="inp4" name="attr_sk-sleight_of_hand-xp" /></td>	</tr>
+			<tr class="statRow">	<td class="skillLabel">Speed Load</td>	<td>agl</td>	<td><input type="text" readonly="readonly" class="inp2" name="attr_sk-speed_load-rank" /></td>	<td><input type="text" readonly="readonly" class="inp2" name="attr_sk-speed_load-attrmod" /></td>	<td><input type="text" class="inp2" name="attr_sk-speed_load-manmod" /></td>	<td><input type="text" readonly="readonly" class="inp2 skillTot" name="attr_sk-speed_load-tot" /></td>	<td>2x<input type="text" class="inp4" name="attr_sk-speed_load-xp" /></td>	</tr>
+			<tr class="statRow">	<td class="skillLabel">Swim</td>	<td>str</td>	<td><input type="text" readonly="readonly" class="inp2" name="attr_sk-swim-rank" /></td>	<td><input type="text" readonly="readonly" class="inp2" name="attr_sk-swim-attrmod" /></td>	<td><input type="text" class="inp2" name="attr_sk-swim-manmod" /></td>	<td><input type="text" readonly="readonly" class="inp2 skillTot" name="attr_sk-swim-tot" /></td>	<td>1x<input type="text" class="inp4" name="attr_sk-swim-xp" /></td>	</tr>
+											
+											
+			<tr class="statRow">	<td class="skillLabel">Deceit</td>	<td>rea</td>	<td><input type="text" readonly="readonly" class="inp2" name="attr_sk-deceit-rank" /></td>	<td><input type="text" readonly="readonly" class="inp2" name="attr_sk-deceit-attrmod" /></td>	<td><input type="text" class="inp2" name="attr_sk-deceit-manmod" /></td>	<td><input type="text" readonly="readonly" class="inp2 skillTot" name="attr_sk-deceit-tot" /></td>	<td>2x<input type="text" class="inp4" name="attr_sk-deceit-xp" /></td>	</tr>
+			<tr class="statRow">	<td class="skillLabel">Determine Motivation</td>	<td>rea</td>	<td><input type="text" readonly="readonly" class="inp2" name="attr_sk-determine_motivation-rank" /></td>	<td><input type="text" readonly="readonly" class="inp2" name="attr_sk-determine_motivation-attrmod" /></td>	<td><input type="text" class="inp2" name="attr_sk-determine_motivation-manmod" /></td>	<td><input type="text" readonly="readonly" class="inp2 skillTot" name="attr_sk-determine_motivation-tot" /></td>	<td>1x<input type="text" class="inp4" name="attr_sk-determine_motivation-xp" /></td>	</tr>
+			<tr class="statRow">	<td class="skillLabel">Disguise</td>	<td>per</td>	<td><input type="text" readonly="readonly" class="inp2" name="attr_sk-disguise-rank" /></td>	<td><input type="text" readonly="readonly" class="inp2" name="attr_sk-disguise-attrmod" /></td>	<td><input type="text" class="inp2" name="attr_sk-disguise-manmod" /></td>	<td><input type="text" readonly="readonly" class="inp2 skillTot" name="attr_sk-disguise-tot" /></td>	<td>2x<input type="text" class="inp4" name="attr_sk-disguise-xp" /></td>	</tr>
+			<tr class="statRow">	<td class="skillLabel">Information Gathering</td>	<td>rea</td>	<td><input type="text" readonly="readonly" class="inp2" name="attr_sk-information_gathering-rank" /></td>	<td><input type="text" readonly="readonly" class="inp2" name="attr_sk-information_gathering-attrmod" /></td>	<td><input type="text" class="inp2" name="attr_sk-information_gathering-manmod" /></td>	<td><input type="text" readonly="readonly" class="inp2 skillTot" name="attr_sk-information_gathering-tot" /></td>	<td>1x<input type="text" class="inp4" name="attr_sk-information_gathering-xp" /></td>	</tr>
+			<tr class="statRow">	<td class="skillLabel">Intimidation</td>	<td>*</td>	<td><input type="text" readonly="readonly" class="inp2" name="attr_sk-intimidation-rank" /></td>	<td><input type="text" readonly="readonly" class="inp2" name="attr_sk-intimidation-attrmod" /></td>	<td><input type="text" class="inp2" name="attr_sk-intimidation-manmod" /></td>	<td><input type="text" readonly="readonly" class="inp2 skillTot" name="attr_sk-intimidation-tot" /></td>	<td>2x<input type="text" class="inp4" name="attr_sk-intimidation-xp" /></td>	</tr>
+			<tr class="statRow">	<td class="skillLabel">Persuasion</td>	<td>rea</td>	<td><input type="text" readonly="readonly" class="inp2" name="attr_sk-persuasion-rank" /></td>	<td><input type="text" readonly="readonly" class="inp2" name="attr_sk-persuasion-attrmod" /></td>	<td><input type="text" class="inp2" name="attr_sk-persuasion-manmod" /></td>	<td><input type="text" readonly="readonly" class="inp2 skillTot" name="attr_sk-persuasion-tot" /></td>	<td>1x<input type="text" class="inp4" name="attr_sk-persuasion-xp" /></td>	</tr>
+			<tr class="statRow">	<td class="skillLabel">Performance</td>	<td>per</td>	<td><input type="text" readonly="readonly" class="inp2" name="attr_sk-performance-rank" /></td>	<td><input type="text" readonly="readonly" class="inp2" name="attr_sk-performance-attrmod" /></td>	<td><input type="text" class="inp2" name="attr_sk-performance-manmod" /></td>	<td><input type="text" readonly="readonly" class="inp2 skillTot" name="attr_sk-performance-tot" /></td>	<td>1x<input type="text" class="inp4" name="attr_sk-performance-xp" /></td>	</tr>
+			<tr class="statRow">	<td class="skillLabel">Street Savvy</td>	<td>rea</td>	<td><input type="text" readonly="readonly" class="inp2" name="attr_sk-street_savvy-rank" /></td>	<td><input type="text" readonly="readonly" class="inp2" name="attr_sk-street_savvy-attrmod" /></td>	<td><input type="text" class="inp2" name="attr_sk-street_savvy-manmod" /></td>	<td><input type="text" readonly="readonly" class="inp2 skillTot" name="attr_sk-street_savvy-tot" /></td>	<td>2x<input type="text" class="inp4" name="attr_sk-street_savvy-xp" /></td>	</tr>
+		</table>					
 	</div>
-</div> <!-- End Defense Summary -->
+	<div class="skillSection inlineblock">
+		<table>						
+			<tr class="statHeaderRow"><th>Skill Name</th><th></th><th>Rank</th><th>Mod</th><th>Mod 2</th><th>Total</th><th>XP</th></tr>
+			<tr class="statRow">	<td class="skillLabel">Alchemy</td>	<td>rea</td>	<td><input type="text" readonly="readonly" class="inp2" name="attr_sk-alchemy-rank" /></td>	<td><input type="text" readonly="readonly" class="inp2" name="attr_sk-alchemy-attrmod" /></td>	<td><input type="text" class="inp2" name="attr_sk-alchemy-manmod" /></td>	<td><input type="text" readonly="readonly" class="inp2 skillTot" name="attr_sk-alchemy-tot" /></td>	<td>2x<input type="text" class="inp4" name="attr_sk-alchemy-xp" /></td>	</tr>
+			<tr class="statRow">	<td class="skillLabel">Appraisal</td>	<td>per</td>	<td><input type="text" readonly="readonly" class="inp2" name="attr_sk-appraisal-rank" /></td>	<td><input type="text" readonly="readonly" class="inp2" name="attr_sk-appraisal-attrmod" /></td>	<td><input type="text" class="inp2" name="attr_sk-appraisal-manmod" /></td>	<td><input type="text" readonly="readonly" class="inp2 skillTot" name="attr_sk-appraisal-tot" /></td>	<td>1x<input type="text" class="inp4" name="attr_sk-appraisal-xp" /></td>	</tr>
+			<tr class="statRow">	<td class="skillLabel">Art</td>	<td>per</td>	<td><input type="text" readonly="readonly" class="inp2" name="attr_sk-art-rank" /></td>	<td><input type="text" readonly="readonly" class="inp2" name="attr_sk-art-attrmod" /></td>	<td><input type="text" class="inp2" name="attr_sk-art-manmod" /></td>	<td><input type="text" readonly="readonly" class="inp2 skillTot" name="attr_sk-art-tot" /></td>	<td>1x<input type="text" class="inp4" name="attr_sk-art-xp" /></td>	</tr>
+			<tr class="statRow">	<td class="skillLabel">Animal Handling</td>	<td>will</td>	<td><input type="text" readonly="readonly" class="inp2" name="attr_sk-animal_handling-rank" /></td>	<td><input type="text" readonly="readonly" class="inp2" name="attr_sk-animal_handling-attrmod" /></td>	<td><input type="text" class="inp2" name="attr_sk-animal_handling-manmod" /></td>	<td><input type="text" readonly="readonly" class="inp2 skillTot" name="attr_sk-animal_handling-tot" /></td>	<td>2x<input type="text" class="inp4" name="attr_sk-animal_handling-xp" /></td>	</tr>
+			<tr class="statRow">	<td class="skillLabel">Boyer/Fletcher</td>	<td>rea</td>	<td><input type="text" readonly="readonly" class="inp2" name="attr_sk-boyer_fletcher-rank" /></td>	<td><input type="text" readonly="readonly" class="inp2" name="attr_sk-boyer_fletcher-attrmod" /></td>	<td><input type="text" class="inp2" name="attr_sk-boyer_fletcher-manmod" /></td>	<td><input type="text" readonly="readonly" class="inp2 skillTot" name="attr_sk-boyer_fletcher-tot" /></td>	<td>2x<input type="text" class="inp4" name="attr_sk-boyer_fletcher-xp" /></td>	</tr>
+			<tr class="statRow">	<td class="skillLabel">Disarm/Create Trap</td>	<td>rea</td>	<td><input type="text" readonly="readonly" class="inp2" name="attr_sk-disarm_create_trap-rank" /></td>	<td><input type="text" readonly="readonly" class="inp2" name="attr_sk-disarm_create_trap-attrmod" /></td>	<td><input type="text" class="inp2" name="attr_sk-disarm_create_trap-manmod" /></td>	<td><input type="text" readonly="readonly" class="inp2 skillTot" name="attr_sk-disarm_create_trap-tot" /></td>	<td>2x<input type="text" class="inp4" name="attr_sk-disarm_create_trap-xp" /></td>	</tr>
+			<tr class="statRow">	<td class="skillLabel">First Aid</td>	<td>rea</td>	<td><input type="text" readonly="readonly" class="inp2" name="attr_sk-first_aid-rank" /></td>	<td><input type="text" readonly="readonly" class="inp2" name="attr_sk-first_aid-attrmod" /></td>	<td><input type="text" class="inp2" name="attr_sk-first_aid-manmod" /></td>	<td><input type="text" readonly="readonly" class="inp2 skillTot" name="attr_sk-first_aid-tot" /></td>	<td>1x<input type="text" class="inp4" name="attr_sk-first_aid-xp" /></td>	</tr>
+			<tr class="statRow">	<td class="skillLabel">Flora/Fauna</td>	<td>rea</td>	<td><input type="text" readonly="readonly" class="inp2" name="attr_sk-flora_fauna-rank" /></td>	<td><input type="text" readonly="readonly" class="inp2" name="attr_sk-flora_fauna-attrmod" /></td>	<td><input type="text" class="inp2" name="attr_sk-flora_fauna-manmod" /></td>	<td><input type="text" readonly="readonly" class="inp2 skillTot" name="attr_sk-flora_fauna-tot" /></td>	<td>1x<input type="text" class="inp4" name="attr_sk-flora_fauna-xp" /></td>	</tr>
+			<tr class="statRow">	<td class="skillLabel">Forgery</td>	<td>per</td>	<td><input type="text" readonly="readonly" class="inp2" name="attr_sk-forgery-rank" /></td>	<td><input type="text" readonly="readonly" class="inp2" name="attr_sk-forgery-attrmod" /></td>	<td><input type="text" class="inp2" name="attr_sk-forgery-manmod" /></td>	<td><input type="text" readonly="readonly" class="inp2 skillTot" name="attr_sk-forgery-tot" /></td>	<td>2x<input type="text" class="inp4" name="attr_sk-forgery-xp" /></td>	</tr>
+			<tr class="statRow">	<td class="skillLabel">Gunsmith</td>	<td>rea</td>	<td><input type="text" readonly="readonly" class="inp2" name="attr_sk-gunsmith-rank" /></td>	<td><input type="text" readonly="readonly" class="inp2" name="attr_sk-gunsmith-attrmod" /></td>	<td><input type="text" class="inp2" name="attr_sk-gunsmith-manmod" /></td>	<td><input type="text" readonly="readonly" class="inp2 skillTot" name="attr_sk-gunsmith-tot" /></td>	<td>2x<input type="text" class="inp4" name="attr_sk-gunsmith-xp" /></td>	</tr>
+			<tr class="statRow">	<td class="skillLabel">Herbalism</td>	<td>rea</td>	<td><input type="text" readonly="readonly" class="inp2" name="attr_sk-herbalism-rank" /></td>	<td><input type="text" readonly="readonly" class="inp2" name="attr_sk-herbalism-attrmod" /></td>	<td><input type="text" class="inp2" name="attr_sk-herbalism-manmod" /></td>	<td><input type="text" readonly="readonly" class="inp2 skillTot" name="attr_sk-herbalism-tot" /></td>	<td>2x<input type="text" class="inp4" name="attr_sk-herbalism-xp" /></td>	</tr>
+			<tr class="statRow">	<td class="skillLabel">Hunting/Fishing</td>	<td>per</td>	<td><input type="text" readonly="readonly" class="inp2" name="attr_sk-hunting_fishing-rank" /></td>	<td><input type="text" readonly="readonly" class="inp2" name="attr_sk-hunting_fishing-attrmod" /></td>	<td><input type="text" class="inp2" name="attr_sk-hunting_fishing-manmod" /></td>	<td><input type="text" readonly="readonly" class="inp2 skillTot" name="attr_sk-hunting_fishing-tot" /></td>	<td>1x<input type="text" class="inp4" name="attr_sk-hunting_fishing-xp" /></td>	</tr>
+			<tr class="statRow">	<td class="skillLabel">Investigations</td>	<td>rea</td>	<td><input type="text" readonly="readonly" class="inp2" name="attr_sk-investigations-rank" /></td>	<td><input type="text" readonly="readonly" class="inp2" name="attr_sk-investigations-attrmod" /></td>	<td><input type="text" class="inp2" name="attr_sk-investigations-manmod" /></td>	<td><input type="text" readonly="readonly" class="inp2 skillTot" name="attr_sk-investigations-tot" /></td>	<td>2x<input type="text" class="inp4" name="attr_sk-investigations-xp" /></td>	</tr>
+			<tr class="statRow">	<td class="skillLabel">Lock Picking</td>	<td>rea</td>	<td><input type="text" readonly="readonly" class="inp2" name="attr_sk-lock_picking-rank" /></td>	<td><input type="text" readonly="readonly" class="inp2" name="attr_sk-lock_picking-attrmod" /></td>	<td><input type="text" class="inp2" name="attr_sk-lock_picking-manmod" /></td>	<td><input type="text" readonly="readonly" class="inp2 skillTot" name="attr_sk-lock_picking-tot" /></td>	<td>2x<input type="text" class="inp4" name="attr_sk-lock_picking-xp" /></td>	</tr>
+			<tr class="statRow">	<td class="skillLabel">Medicine</td>	<td>rea</td>	<td><input type="text" readonly="readonly" class="inp2" name="attr_sk-medicine-rank" /></td>	<td><input type="text" readonly="readonly" class="inp2" name="attr_sk-medicine-attrmod" /></td>	<td><input type="text" class="inp2" name="attr_sk-medicine-manmod" /></td>	<td><input type="text" readonly="readonly" class="inp2 skillTot" name="attr_sk-medicine-tot" /></td>	<td>2x<input type="text" class="inp4" name="attr_sk-medicine-xp" /></td>	</tr>
+			<tr class="statRow">	<td class="skillLabel">Meditation</td>	<td>will</td>	<td><input type="text" readonly="readonly" class="inp2" name="attr_sk-meditation-rank" /></td>	<td><input type="text" readonly="readonly" class="inp2" name="attr_sk-meditation-attrmod" /></td>	<td><input type="text" class="inp2" name="attr_sk-meditation-manmod" /></td>	<td><input type="text" readonly="readonly" class="inp2 skillTot" name="attr_sk-meditation-tot" /></td>	<td>2x<input type="text" class="inp4" name="attr_sk-meditation-xp" /></td>	</tr>
+			<tr class="statRow">	<td class="skillLabel">Mechanics</td>	<td>rea</td>	<td><input type="text" readonly="readonly" class="inp2" name="attr_sk-mechanics-rank" /></td>	<td><input type="text" readonly="readonly" class="inp2" name="attr_sk-mechanics-attrmod" /></td>	<td><input type="text" class="inp2" name="attr_sk-mechanics-manmod" /></td>	<td><input type="text" readonly="readonly" class="inp2 skillTot" name="attr_sk-mechanics-tot" /></td>	<td>1x<input type="text" class="inp4" name="attr_sk-mechanics-xp" /></td>	</tr>
+			<tr class="statRow">	<td class="skillLabel">Research</td>	<td>rea</td>	<td><input type="text" readonly="readonly" class="inp2" name="attr_sk-research-rank" /></td>	<td><input type="text" readonly="readonly" class="inp2" name="attr_sk-research-attrmod" /></td>	<td><input type="text" class="inp2" name="attr_sk-research-manmod" /></td>	<td><input type="text" readonly="readonly" class="inp2 skillTot" name="attr_sk-research-tot" /></td>	<td>1x<input type="text" class="inp4" name="attr_sk-research-xp" /></td>	</tr>
+			<tr class="statRow">	<td class="skillLabel">Siege Weapon</td>	<td>rea</td>	<td><input type="text" readonly="readonly" class="inp2" name="attr_sk-siege_weapon-rank" /></td>	<td><input type="text" readonly="readonly" class="inp2" name="attr_sk-siege_weapon-attrmod" /></td>	<td><input type="text" class="inp2" name="attr_sk-siege_weapon-manmod" /></td>	<td><input type="text" readonly="readonly" class="inp2 skillTot" name="attr_sk-siege_weapon-tot" /></td>	<td>2x<input type="text" class="inp4" name="attr_sk-siege_weapon-xp" /></td>	</tr>
+			<tr class="statRow">	<td class="skillLabel">Smithing</td>	<td>rea</td>	<td><input type="text" readonly="readonly" class="inp2" name="attr_sk-smithing-rank" /></td>	<td><input type="text" readonly="readonly" class="inp2" name="attr_sk-smithing-attrmod" /></td>	<td><input type="text" class="inp2" name="attr_sk-smithing-manmod" /></td>	<td><input type="text" readonly="readonly" class="inp2 skillTot" name="attr_sk-smithing-tot" /></td>	<td>2x<input type="text" class="inp4" name="attr_sk-smithing-xp" /></td>	</tr>
+			<tr class="statRow">	<td class="skillLabel">Spellcraft</td>	<td>rea</td>	<td><input type="text" readonly="readonly" class="inp2" name="attr_sk-spellcraft-rank" /></td>	<td><input type="text" readonly="readonly" class="inp2" name="attr_sk-spellcraft-attrmod" /></td>	<td><input type="text" class="inp2" name="attr_sk-spellcraft-manmod" /></td>	<td><input type="text" readonly="readonly" class="inp2 skillTot" name="attr_sk-spellcraft-tot" /></td>	<td>2x<input type="text" class="inp4" name="attr_sk-spellcraft-xp" /></td>	</tr>
+			<tr class="statRow">	<td class="skillLabel">Survival</td>	<td>per</td>	<td><input type="text" readonly="readonly" class="inp2" name="attr_sk-survival-rank" /></td>	<td><input type="text" readonly="readonly" class="inp2" name="attr_sk-survival-attrmod" /></td>	<td><input type="text" class="inp2" name="attr_sk-survival-manmod" /></td>	<td><input type="text" readonly="readonly" class="inp2 skillTot" name="attr_sk-survival-tot" /></td>	<td>1x<input type="text" class="inp4" name="attr_sk-survival-xp" /></td>	</tr>
+			<tr class="statRow">	<td class="skillLabel">Tracking</td>	<td>per</td>	<td><input type="text" readonly="readonly" class="inp2" name="attr_sk-tracking-rank" /></td>	<td><input type="text" readonly="readonly" class="inp2" name="attr_sk-tracking-attrmod" /></td>	<td><input type="text" class="inp2" name="attr_sk-tracking-manmod" /></td>	<td><input type="text" readonly="readonly" class="inp2 skillTot" name="attr_sk-tracking-tot" /></td>	<td>2x<input type="text" class="inp4" name="attr_sk-tracking-xp" /></td>	</tr>
+		</table>
+	</div> <!-- End SkillSection -->
+</div> <!-- End page-skills -->
