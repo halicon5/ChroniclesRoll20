@@ -92,7 +92,8 @@ input.sheet-skillTot[type="text"]{background-color: #5A94E0;
 									font-weight: 900;
 									font-size: 1em;}
 
-
+.sheet-skillLabel {font-weight: bold; text-align: right;}
+td.sheet-skillMod {font-style: italic; font-size:.8em; color: #333333;}
 .charsheet table td {text-align: left;
 					padding-right: 2px}
 .sheet-header {font-weight: bold;

@@ -140,9 +140,11 @@ cs.configBuildSkillTables = function() {
 
 	this.skillHash = {};
 	this.honedDerivedSkills = {};
+	this.skillXpFields = [];
 	for (var i = 0; i < this.skillList.length; i++) {
 		this.skillHash[this.skillList[i].safeName] = this.skillList[i];
 		
+		this.skillXpFields.push("sk-" + this.skillList[i].safeName + "-xp");
 		if (this.skillList[i].mod !== "*") {
 			if (!this.honedDerivedSkills[this.skillList[i].mod]) {
 				this.honedDerivedSkills[this.skillList[i].mod] = [];
@@ -152,6 +154,8 @@ cs.configBuildSkillTables = function() {
 	}
 
 }
+
+
 
 cs.configManualMods = function() {
 	console.log("CHRON: cs.configManualMods");
@@ -185,7 +189,7 @@ cs.configManualMods = function() {
 
 cs.configDerivedStats = function() {
 	console.log("CHRON: cs.configDerivedStats");
-	this.derivedStats = [];
+	this.derivedStats = {};
 
 	for (var i = 0; i < this.attribs.length; i++) {
 		this.derivedStats[this.attribs[i].attr] = [];
@@ -234,7 +238,27 @@ cs.configDerivedStats = function() {
 	this.derivedStats["healing-adj"].push( {"calc": cs.calc_healingRates} );
 	this.derivedStats["healing-medmod"].push( {"calc": cs.calc_healingRates} );
 
+
+	this.derivedStats["will"].push({ "calc": cs.calc_skill_resist_fear_attradj});
+	this.derivedStats["spir"].push({"calc": cs.calc_skill_resist_fear_attradj});
+	this.derivedStats["fort"].push({"calc": cs.calc_skill_resist_fear_attradj});
+	this.derivedStats["con"].push({"calc": cs.calc_skill_resist_fear_attradj});
+
+	this.derivedStats["agl"].push({"calc": cs.calc_skill_athletics_attradj});
+	this.derivedStats["str"].push({"calc": cs.calc_skill_athletics_attradj});
+	this.derivedStats["con"].push({"calc": cs.calc_skill_athletics_attradj});
+
+	this.derivedStats["agl"].push({"calc": cs.calc_skill_move_silently_attradj});
+	this.derivedStats["size-adj"].push({"calc": cs.calc_skill_move_silently_attradj});
+
+	this.derivedStats["str"].push( { "calc": cs.calc_skill_intimidation_attradj } );
+	this.derivedStats["siz"].push( { "calc": cs.calc_skill_intimidation_attradj } );
+	this.derivedStats["will"].push( { "calc": cs.calc_skill_intimidation_attradj } );
+	this.derivedStats["spir"].push( { "calc": cs.calc_skill_intimidation_attradj } );
+
 }
+
+
 
 
 cs.assignAttributeChangeTriggers = function() {
@@ -254,6 +278,9 @@ cs.assignAttributeChangeTriggers = function() {
 	on(cs.dynamAttribChangeString, cs.processChangedAttribute);
 	on(cs.dynamAdjChangeString, cs.processChangedAttribAdj);
 	on(cs.dynamHonedChangeString, cs.processChangedHonedAttrib);
+
+	on("change:a-strength", function() {console.log("CHRON: Does this override?") } );
+	on("change:a-strength", function() {console.log("CHRON: Does this override? No, really, does it?") } );
 }
 
 cs.assignManualModChangeTriggers = function() {
@@ -698,7 +725,73 @@ cs.processSkillXPChange = function(e) {
 		targObj["sk-" + sksn + "-rank"] = rank;
 		setAttrs(targObj);
 	});
+	cs.calc_totalXP();
 }
+
+cs.calc_totalXP = function() {
+	console.log("CHRON: cs.calc_totalXp");
+	getAttrs(cs.skillXpFields, function(v) {
+		var totalXP = 0;
+		for (var k in v) {
+			totalXP += cs.getIntegerValue(v[k],0);
+		}
+		var targObj = {};
+		targObj["totalXP"] = totalXP;
+		setAttrs(targObj);
+	});
+}
+
+
+cs.calc_skill_resist_fear_attradj = function() {
+	console.log("CHRON: cs.calc_skill_resist_fear_attradj");
+	getAttrs(["will","spir","fort","con"], function(v) {
+		var best = -5;
+		best = ( cs.getIntegerValue(v["will"],0) > best) ? cs.getIntegerValue(v["will"],0) : best;
+		best = ( cs.getIntegerValue(v["spir"],0) > best) ? cs.getIntegerValue(v["spir"],0) : best;
+		best = ( cs.getIntegerValue(v["fort"],0) > best) ? cs.getIntegerValue(v["fort"],0) : best;
+		best = ( cs.getIntegerValue(v["con"],0) > best) ? cs.getIntegerValue(v["con"],0) : best;
+		targObj = {};
+		targObj["sk-resist_fear-attrmod"] = best;
+		setAttrs(targObj);
+	});
+}
+
+cs.calc_skill_athletics_attradj = function() {
+	console.log("CHRON: cs.calc_skill_athletics_attradj");
+	getAttrs(["con","str","agl"], function(v) {
+		var avg = Math.round( (cs.getIntegerValue(v["con"],0) + cs.getIntegerValue(v["str"],0) + cs.getIntegerValue(v["agl"],0) )/3);
+		targObj = {};
+		targObj["sk-athletics-attrmod"] = avg;
+		setAttrs(targObj);
+	});
+}
+
+cs.calc_skill_move_silently_attradj = function() {
+	console.log("CHRON: cs.calc_skill_move_silently_attradj");
+	getAttrs(["a-size-adj","agl"], function(v) {
+		var sizeadj =  cs.getIntegerValue(v["a-size-adj"],0);
+		sizeadj = (sizeadj > 5) ? 5 : sizeadj;
+		var adj =  cs.getIntegerValue(v["agl"],0) - sizeadj  ;
+		targObj = {};
+		targObj["sk-move_silently-attrmod"] = adj;
+		setAttrs(targObj);
+	});
+}
+
+cs.calc_skill_intimidation_attradj = function() {
+	console.log("CHRON: cs.calc_skill_intimidation_attradj");
+	getAttrs(["str","size","will","spir"], function(v) {
+		var best = -5;
+		best = ( cs.getIntegerValue(v["str"],0) > best) ? cs.getIntegerValue(v["str"],0) : best;
+		best = ( cs.getIntegerValue(v["siz"],0) > best) ? cs.getIntegerValue(v["siz"],0) : best;
+		best = ( cs.getIntegerValue(v["will"],0) > best) ? cs.getIntegerValue(v["will"],0) : best;
+		best = ( cs.getIntegerValue(v["spir"],0) > best) ? cs.getIntegerValue(v["spir"],0) : best;
+		targObj = {};
+		targObj["sk-intimidation-attrmod"] = best;
+		setAttrs(targObj);
+	});
+}
+
 
 cs.initialize();
 
