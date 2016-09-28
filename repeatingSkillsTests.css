@@ -1,0 +1,29 @@
+div.sheet-tab {display: inline;
+            padding: 0 0 0 15px}
+            
+
+div.sheet-panel {display: none}
+
+input.sheet-charpanel:checked ~ div.sheet-charpanel {   
+    display: block;
+}
+
+input.sheet-skpanel:checked ~ div.sheet-skpanel {   
+    display: block;
+}
+
+input.sheet-combatpanel:checked ~ div.sheet-combatpanel {   
+    display: block;
+}
+
+input.sheet-inventorypanel:checked ~ div.sheet-inventorypanel {   
+    display: block;
+}
+
+input.sheet-biopanel:checked ~ div.sheet-biopanel {   
+    display: block;
+}
+
+input.sheet-proftxt, input.sheet-combtxt {
+    width: 50px;   
+}
