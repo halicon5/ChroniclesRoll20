@@ -1,36 +1,64 @@
 <script type="text/worker">
-    var testObj = [];
-    on("change:repeating_profs", function(e) {
-        var profid = getIdFromProfsEvent(e);
-        getSectionIDs("repeating_profs", function(idarray) {
-            var attrsList = [];
-            attrsList.push("repeating_profs_" + profid + "_prof-name");
-            attrsList.push("repeating_profs_" + profid + "_prof-rank");
-            attrsList.push("repeating_profs_" + profid + "_prof-rankmod");
-            attrsList.push("repeating_profs_" + profid + "_prof-tohit");
-            attrsList.push("repeating_profs_" + profid + "_prof-dam");
-            attrsList.push("repeating_profs_" + profid + "_prof-tohit");
-            attrsList.push("repeating_profs_" + profid + "_prof-crit");
+	var testObj = [];
+	on("change:repeating_profs", function(e) {
+		var profid = getIdFromProfsEvent(e);
+		console.log("TEST: get repeating_profs ids");
+		getSectionIDs("repeating_profs", function(idarray) {
+			var attrsList = [];
+			attrsList.push("repeating_profs_" + profid + "_prof-name");
+			attrsList.push("repeating_profs_" + profid + "_prof-rank");
+			attrsList.push("repeating_profs_" + profid + "_prof-rankmod");
+			attrsList.push("repeating_profs_" + profid + "_prof-tohit");
+			attrsList.push("repeating_profs_" + profid + "_prof-dam");
+			attrsList.push("repeating_profs_" + profid + "_prof-tohit");
+			attrsList.push("repeating_profs_" + profid + "_prof-crit");
+			console.log("TEST: get repeating_profs ids");
+			getAttrs(attrsList, function(v) {
+				var profName = v["repeating_profs_" + profid + "_prof-name"];
+				console.log(v["repeating_profs_" + profid + "_prof-name"]);
+				console.log("TEST: get combat section ids");
+//				console.log(attrsList);
+//				console.log(v);
+				getSectionIDs("repeating_combacts", function(combarray) {
+					console.log("TEST: get combat section ids");
+					for (var i = 0; i < combarray.length; i++) {
+						console.log("COMBARRAY");
+						var combId = combarray[i];
+						console.log("COMBARRAY" + combarray[i]);
+						console.log("COMBARRAY" + combId);
+						console.log("FULLNAME: repeating_combacts_" + combId + "_combact-prof-name");
+						var fullCombIdName = ["repeating_combacts_" + combId + "_combact-prof-name"];
+//						getAttrs( ["repeating_combacts_" + combId+ "_combact-prof-name"], function(ci)  {
+						getAttrs( fullCombIdName, function(ci)  {
+							console.log("getAttrs repeating_combacts_");
+							console.log(fullCombIdName);
+							console.log(ci);
+							console.log(combarray);
+							console.log(combId);
+							var combProf = ci["repeating_combacts_" + combarray[i] + "_combact-prof-name"];
+							console.log("repeating_combacts_" + combarray[i] + "_combact-prof-name");
+							console.log(combProf + " " + profName);
+//							if (profName == )
+						});
+					}
+				}); // End getSectionIDS for combat actions
+			}); // end getAttrs( for the changed repeating proficiency )
+		}); // end get sectionIDs for the repeating_profs 
+	});
 
-            getAttrs(attrsList, function(v){
-                console.log(attrsList);
-                console.log(v);
-            });
-        });
-    });
 
+	function getIdFromProfsEvent(e) {
+		if (e.sourceAttribute && e.sourceAttribute.replace) {
+			var profid = e.sourceAttribute.replace("repeating_profs_","");
+			var profid = profid.replace("_prof-rank","");
+			var profid = profid.replace("_prof-rankmod","");
+			var profid = profid.replace("_prof-tohit","");
+			var profid = profid.replace("_prof-dam","");
+			var profid = profid.replace("_prof-crit","");
+			return profid;
+		}
+	}
 
-    function getIdFromProfsEvent(e) {
-        if (e.sourceAttribute && e.sourceAttribute.replace) {
-            var profid = e.sourceAttribute.replace("repeating_profs_","");
-            var profid = profid.replace("_prof-rank","");
-            var profid = profid.replace("_prof-rankmod","");
-            var profid = profid.replace("_prof-tohit","");
-            var profid = profid.replace("_prof-dam","");
-            var profid = profid.replace("_prof-crit","");
-            return profid;
-        }
-    }
 </script>
 
 <div class="tab">Char Info</div><input class="charpanel" type="checkbox" name="attr_charpanel" value="charpanel" />
@@ -49,60 +77,63 @@
 
 <div class="panel biopanel">The Bio Panel</div>    
 
+Test: <input type="text" name="attr_test1" />
+Test 2: <input type="text" name="attr_test2" />
+
 <h4>Combat Items</h4>
 <fieldset class="repeating_combacts">
-    <input type="text" name="attr_combact-name">
-    Linked Prof: <select name="attr_combact-prof">
-        <option value="">-- None --</option>
-        <option value="archery">Archery</option>
-        <option value="armor">Armor</option>
-        <option value="dualweapon">Dual Weapon Fighting</option>
-        <option value="greatswords">Great Swords</option>
-        <option value="handguns">Handguns</option>
-        <option value="heavyweapons">Heavy Weapons</option>
-        <option value="hooked">Hooked Weapons</option>
-        <option value="lightweapons">Light Weapons</option>
-        <option value="polearms">Polearms</option>
-        <option value="rifleandcrossbow">Rifle and Crossbow</option> 
-        <option value="shields">Shields</option>
-        <option value="shouspiritway">Shou Spirit Way</option>
-        <option value="smallblades">Small Blades</option>
-        <option value="thrownweapons">Thrown Weapons</option>
-        <option value="unarmed">Unarmed Combat</option>
-        <option value="wrestling">Wrestling</option>
-    </select>
-    <select name="attr_combact-coreskill">
-        <option value="">-- Type --</option>
-        <option value="melee">Melee</option>
-        <option value="aim">Aim</option>
-    </select>
-    <input type="text" class="combtxt" name="attr_combact-tohit">
+	<input type="text" name="attr_combact-name">
+	Linked Prof: <select name="attr_combact-prof-name">
+		<option value="">-- None --</option>
+		<option value="archery">Archery</option>
+		<option value="armor">Armor</option>
+		<option value="dualweapon">Dual Weapon Fighting</option>
+		<option value="greatswords">Great Swords</option>
+		<option value="handguns">Handguns</option>
+		<option value="heavyweapons">Heavy Weapons</option>
+		<option value="hooked">Hooked Weapons</option>
+		<option value="lightweapons">Light Weapons</option>
+		<option value="polearms">Polearms</option>
+		<option value="rifleandcrossbow">Rifle and Crossbow</option> 
+		<option value="shields">Shields</option>
+		<option value="shouspiritway">Shou Spirit Way</option>
+		<option value="smallblades">Small Blades</option>
+		<option value="thrownweapons">Thrown Weapons</option>
+		<option value="unarmed">Unarmed Combat</option>
+		<option value="wrestling">Wrestling</option>
+	</select>
+	<select name="attr_combact-coreskill">
+		<option value="">-- Type --</option>
+		<option value="melee">Melee</option>
+		<option value="aim">Aim</option>
+	</select>
+	<input type="text" class="combtxt" name="attr_combact-tohit">
 </fieldset>
 
 
 <h4>Proficiencies</h4>
 <fieldset class="repeating_profs">
-    <select name="attr_prof-name">
-        <option value="archery">Archery</option>
-        <option value="armor">Armor</option>
-        <option value="dualweapon">Dual Weapon Fighting</option>
-        <option value="greatswords">Great Swords</option>
-        <option value="handguns">Handguns</option>
-        <option value="heavyweapons">Heavy Weapons</option>
-        <option value="hooked">Hooked Weapons</option>
-        <option value="lightweapons">Light Weapons</option>
-        <option value="polearms">Polearms</option>
-        <option value="rifleandcrossbow">Rifle and Crossbow</option> 
-        <option value="shields">Shields</option>
-        <option value="shouspiritway">Shou Spirit Way</option>
-        <option value="smallblades">Small Blades</option>
-        <option value="thrownweapons">Thrown Weapons</option>
-        <option value="unarmed">Unarmed Combat</option>
-        <option value="wrestling">Wrestling</option>
-    </select>
-    <input class="proftxt" type="text" name="attr_prof-rank"/>
-    <input class="proftxt" type="text" name="attr_prof-rankmod" />
-    <input class="proftxt" type="text" name="attr_prof-tohit" />
-    <input class="proftxt" type="text" name="attr_prof-dam" />
-    <input class="proftxt" type="text" name="attr_prof-crit" />
+	<select name="attr_prof-name">
+		<option value="archery">Archery</option>
+		<option value="armor">Armor</option>
+		<option value="dualweapon">Dual Weapon Fighting</option>
+		<option value="greatswords">Great Swords</option>
+		<option value="handguns">Handguns</option>
+		<option value="heavyweapons">Heavy Weapons</option>
+		<option value="hooked">Hooked Weapons</option>
+		<option value="lightweapons">Light Weapons</option>
+		<option value="polearms">Polearms</option>
+		<option value="rifleandcrossbow">Rifle and Crossbow</option> 
+		<option value="shields">Shields</option>
+		<option value="shouspiritway">Shou Spirit Way</option>
+		<option value="smallblades">Small Blades</option>
+		<option value="thrownweapons">Thrown Weapons</option>
+		<option value="unarmed">Unarmed Combat</option>
+		<option value="wrestling">Wrestling</option>
+	</select>
+	<input class="proftxt" type="text" name="attr_prof-rank"/>
+	<input class="proftxt" type="text" name="attr_prof-rankmod" />
+	<input class="proftxt" type="text" name="attr_prof-tohit" />
+	<input class="proftxt" type="text" name="attr_prof-dam" />
+	<input class="proftxt" type="text" name="attr_prof-crit" />
 </fieldset>
