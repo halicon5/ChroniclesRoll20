@@ -1,8 +1,9 @@
 <script type="text/worker">
-	var testObj = [];
-	on("change:repeating_profs", function(e) {
+    var testObj = [];
+    /*
+    on("change:repeating_profs", function(e) {
 		var profid = getIdFromProfsEvent(e);
-		console.log("TEST: get repeating_profs ids");
+
 		getSectionIDs("repeating_profs", function(idarray) {
 			var attrsList = [];
 			attrsList.push("repeating_profs_" + profid + "_prof-name");
@@ -12,40 +13,94 @@
 			attrsList.push("repeating_profs_" + profid + "_prof-dam");
 			attrsList.push("repeating_profs_" + profid + "_prof-tohit");
 			attrsList.push("repeating_profs_" + profid + "_prof-crit");
-			console.log("TEST: get repeating_profs ids");
+
 			getAttrs(attrsList, function(v) {
 				var profName = v["repeating_profs_" + profid + "_prof-name"];
-				console.log(v["repeating_profs_" + profid + "_prof-name"]);
-				console.log("TEST: get combat section ids");
-//				console.log(attrsList);
-//				console.log(v);
+
 				getSectionIDs("repeating_combacts", function(combarray) {
 					console.log("TEST: get combat section ids");
 					for (var i = 0; i < combarray.length; i++) {
-						console.log("COMBARRAY");
 						var combId = combarray[i];
-						console.log("COMBARRAY" + combarray[i]);
-						console.log("COMBARRAY" + combId);
-						console.log("FULLNAME: repeating_combacts_" + combId + "_combact-prof-name");
 						var fullCombIdName = ["repeating_combacts_" + combId + "_combact-prof-name"];
-//						getAttrs( ["repeating_combacts_" + combId+ "_combact-prof-name"], function(ci)  {
-						getAttrs( fullCombIdName, function(ci)  {
-							console.log("getAttrs repeating_combacts_");
-							console.log(fullCombIdName);
-							console.log(ci);
-							console.log(combarray);
-							console.log(combId);
-							var combProf = ci["repeating_combacts_" + combarray[i] + "_combact-prof-name"];
-							console.log("repeating_combacts_" + combarray[i] + "_combact-prof-name");
-							console.log(combProf + " " + profName);
-//							if (profName == )
-						});
+						
+						( function(fullCombIdName, combId, i) {
+							getAttrs( fullCombIdName, function(ci)  {
+								console.log("Inside the closure");
+								console.log(fullCombIdName);
+								console.log(combId);
+								console.log(i);
+								console.log(ci);
+								var combProf = ci["repeating_combacts_" + combId+ "_combact-prof-name"];
+								console.log("repeating_combacts_" + combId + "_combact-prof-name");
+								console.log(combProf + " " + profName);
+
+								return "RETURN GETATTRS This is a test";
+						} ) }(fullCombIdName, combId, i) );
 					}
 				}); // End getSectionIDS for combat actions
 			}); // end getAttrs( for the changed repeating proficiency )
 		}); // end get sectionIDs for the repeating_profs 
 	});
+*/
+	on("change:repeating_profs", function(e) {
+		var profId = getIdFromProfsEvent(e);
+		console.log('TEST: e');
+		console.log(e);
+//		getSectionIDs("repeating_profs", function(idarray) {
+		var attrsList = createRepeatingProfsAttrList(profId);
+		// this step above is probably unnecessary
 
+		( function (profsList, triggerEvent) {
+			console.log("1st Closure - Repeating Profs");
+
+			getAttrs(profsList, function(pv) {
+				( function (profVals, profsList, triggerEvent) {
+					console.log("2st Closure - Get Attrs Profs");
+					applyChangesToCombacts(profVals, profsList, triggerEvent);
+
+				} (pv,profsList,triggerEvent) );
+			} ); // end getAttrs profsList
+		} (attrsList, e) ); // end closure that contains getAttrs profsList
+//		} );
+	} );
+
+	on("change:repeating_combacts", function(e)  {
+		console.log("TEST: change:repeating_combacts");
+		console.log(e);
+		var combId = getIdFromCombActEvent(e);
+		console.log(combId);
+		getAttrs( ["repeating_combacts_" + combId + "_combact-prof-name"], function(v) {
+			console.log("inside get Attrs");
+			console.log(v);
+		});
+	});
+
+	function createRepeatingProfsAttrList( profId ) {
+		var attrsList = [];
+		attrsList.push("repeating_profs_" + profId + "_prof-name");
+		attrsList.push("repeating_profs_" + profId + "_prof-rank");
+		attrsList.push("repeating_profs_" + profId + "_prof-rankmod");
+		attrsList.push("repeating_profs_" + profId + "_prof-tohit");
+		attrsList.push("repeating_profs_" + profId + "_prof-dam");
+		attrsList.push("repeating_profs_" + profId + "_prof-tohit");
+		attrsList.push("repeating_profs_" + profId + "_prof-crit");
+		return attrsList;
+	}
+
+	function applyChangesToCombacts(profVals, profsList, triggerEvent) {
+		console.log("TEST: applyChangesToCombacts");
+		getSectionIDs( "repeating_combacts", function(combarray) {
+			console.log("TEST: get repeating combact section ids");
+			console.log(combarray);
+			console.log(profVals);
+			console.log(profsList);
+			console.log(triggerEvent);
+			for (var i = 0; i < combarray.length; i++) {
+				var combId = combarray[i];
+				var fullCombIdName = ["repeating_combacts_" + combId + "_combact-prof-name"];
+			}
+		} );
+	}
 
 	function getIdFromProfsEvent(e) {
 		if (e.sourceAttribute && e.sourceAttribute.replace) {
@@ -57,6 +112,17 @@
 			var profid = profid.replace("_prof-crit","");
 			return profid;
 		}
+	}
+
+	function getIdFromCombActEvent(e) {
+		if (e.sourceAttribute && e.sourceAttribute.replace) {
+			var combid = e.sourceAttribute.replace("repeating_combacts_","");
+			var combid = combid.replace("_combact-name","");
+			var combid = combid.replace("_combact-prof-name","");
+			var combid = combid.replace("_combact-coreskill","");
+			var combid = combid.replace("_combact-tohit","");
+			return combid;
+		}		
 	}
 
 </script>
