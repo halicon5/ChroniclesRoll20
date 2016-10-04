@@ -278,9 +278,132 @@
 			</div>
 		</div>
 	</div> <!-- End Defense Summary -->
+
+
+	<div class="combactSection">
+		<div class="combactHeader">
+			<div class="combact-namecol">Combat Action</div>
+			<div class="combact-datacol">AP Cost</div>
+			<div class="combact-datacol">AV</div>
+			<div class="combact-datacol">Crit</div>
+			<div class="combact-datacol">Impact</div>
+			<div class="combact-datacol">Dam</div>
+			<div class="combact-datacol">Details</div>
+		</div>
+		<fieldset class="repeating_combacts">
+			<div class="combact-namecol"><input class="write-in-name" type="text" name="attr_combact-name" /></div>
+			<div class="combact-datacol"><input class="inp2" type="text" name="attr_combact-ap-tot" readonly="readonly" /></div>
+			<div class="combact-datacol"><input class="inp2" type="text" name="attr_combact-av-tot" readonly="readonly" /></div>
+			<div class="combact-datacol"><input class="inp2" type="text" name="attr_combact-crit-tot" readonly="readonly" /></div>
+			<div class="combact-datacol"><input class="inp2" type="text" name="attr_combact-impact-tot" readonly="readonly" /></div>
+			<div class="combact-datacol"><input class="inp2" type="text" name="attr_combact-dam-tot" readonly="readonly" /></div>
+			<input type="checkbox" class="combact-toggle" name="combact-toggle" /> 
+			
+			<div class="combact-config">
+				<div class="selwrapper">Proficiency:
+					<select name="attr_combact-prof-name">
+						<option value="None">---</option>
+						<option value="archery">Archery</option>
+						<option value="armor">Armor</option>
+						<option value="dualweapon">Dual Weapon Fighting</option>
+						<option value="greatswords">Great Swords</option>
+						<option value="handguns">Handguns</option>
+						<option value="heavyweapons">Heavy Weapons</option>
+						<option value="hooked">Hooked Weapons</option>
+						<option value="lightweapons">Light Weapons</option>
+						<option value="polearms">Polearms</option>
+						<option value="rifleandcrossbow">Rifle and Crossbow</option> 
+						<option value="shields">Shields</option>
+						<option value="shouspiritway">Shou Spirit Way</option>
+						<option value="smallblades">Small Blades</option>
+						<option value="thrownweapons">Thrown Weapons</option>
+						<option value="unarmed">Unarmed Combat</option>
+						<option value="wrestling">Wrestling</option>
+					</select>
+				</div>
+
+				<div class="selwrapper">Skill:
+					<select name="attr_combact-bound-skill">
+						<option value="None">---</option>
+						<option value="melee">Melee</option>
+						<option value="aim">Ranged/Aim</option>
+						<option value="dodge">Dodge</option>
+						<option value="ethereal_accuracy">Ethereal Accuracy</option>
+					</select>
+				</div>
+				<div>
+					Manual To-Hit: <input type="text" class="inp2" name="attr_combact-man-tohit"  />
+					Diff: <input type="text"  class="inp2" name="attr_combact-man-diff" />
+					Dam: <input type="text"  class="inp2" name="attr_combact-man-dam" />
+					crit: <input type="text" class="inp2"  name="attr_combact-man-crit" />
+					AP: <input type="text" class="inp2"  name="attr_combact-man-ap" />
+				</div>
+				<div>
+					Weapon: <input type="text" name="attr_combact-weapon-name" />
+					Diff: <input type="text"  class="inp2" name="attr_combact-weapon-diff" readonly="readonly" />
+					Damage: <input type="text"  class="inp2" name="attr_combact-weapon-dam" readonly="readonly" />
+				</div>
+
+				<div>
+					Prof To-Hit: <input type="text" class="inp2"  name="attr_combact-prof-tohit" readonly="readonly" />
+					Dam: <input type="text"  class="inp2" name="attr_combact-prof-dam" readonly="readonly" />
+					crit: <input type="text"  class="inp2" name="attr_combact-prof-crit" readonly="readonly" />
+					AP: <input type="text" class="inp2"  name="attr_combact-prof-ap" readonly="readonly" />
+				</div>
+			</div> <!-- Close combact config div -->
+		</fieldset>
+	</div>
+
 </div> <!-- End Page COmbat -->
 
 <div class="panel page-skills">
+
+	<div class="profSection">
+		<div class="profHeader">
+			<div class="prof-namecol">Combat Proficiency</div>
+			<div class="prof-datacol">Rank</div>
+			<div class="prof-datacol">Mod</div>
+			<div class="prof-datacol">Rank Tot</div>
+			<div class="prof-datacol">AV</div>
+			<div class="prof-datacol">Dam</div>
+			<div class="prof-datacol">Crit</div>
+			<div class="prof-datacol">AP adj</div>
+			<div class="prof-datacol-xp">XP</div>
+		</div>
+		<fieldset class="repeating_profs">
+			<div class="prof-namecol"><div class="selwrapper"><select name="attr_prof-name">
+				<option value="None">---</option>
+				<option value="archery">Archery</option>
+				<option value="armor">Armor</option>
+				<option value="dualweapon">Dual Weapon Fighting</option>
+				<option value="greatswords">Great Swords</option>
+				<option value="handguns">Handguns</option>
+				<option value="heavyweapons">Heavy Weapons</option>
+				<option value="hooked">Hooked Weapons</option>
+				<option value="lightweapons">Light Weapons</option>
+				<option value="polearms">Polearms</option>
+				<option value="rifleandcrossbow">Rifle and Crossbow</option> 
+				<option value="shields">Shields</option>
+				<option value="shouspiritway">Shou Spirit Way</option>
+				<option value="smallblades">Small Blades</option>
+				<option value="thrownweapons">Thrown Weapons</option>
+				<option value="unarmed">Unarmed Combat</option>
+				<option value="wrestling">Wrestling</option>
+			</select></div></div>
+			<div class="prof-datacol"><input class="inp2" type="text" name="attr_prof-rank" readonly="readonly"/></div>
+			<div class="prof-datacol"><input class="inp2" type="text" name="attr_prof-rank-manmod" /></div>
+			<div class="prof-datacol"><input class="inp2" type="text" name="attr_prof-rank-tot" readonly="readonly" /></div>
+			<div class="prof-datacol"><input class="inp2" type="text" name="attr_prof-tohit" readonly="readonly"/></div>
+			<div class="prof-datacol"><input class="inp2" type="text" name="attr_prof-dam" readonly="readonly" /></div>
+			<div class="prof-datacol"><input class="inp2" type="text" name="attr_prof-crit" readonly="readonly"/></div>
+			<div class="prof-datacol"><input class="inp2" type="text" name="attr_prof-ap" readonly="readonly" /></div>
+			<div class="prof-datacol-xp">4x<input class="inp4" type="text" name="attr_prof-xp" /></div>
+		</fieldset>
+	</div>
+	<br />
+
+
+
 	<div class="skillSection inlineblock">
 		<table class="skillSection">
 			<tr class="statHeaderRow"><th>Combat Skills</th><th></th><th>Rank</th><th>Mod 1</th><th>Mod 2</th><th>Total</th><th>XP</th></tr>

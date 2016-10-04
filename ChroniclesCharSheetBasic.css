@@ -8,12 +8,26 @@ input[type='text'] {font-size: .9em;
 input[type='text'][readonly='readonly'] {
     background-color: #DDDDDD;}
 
+
 input.sheet-finalVal {background-color: #5A94E0;}
 
 div.sheet-panel {display: none;}
 
 input.sheet-page-core:checked ~ div.sheet-page-core, input.sheet-page-skills:checked ~ div.sheet-page-skills, input.sheet-page-combat:checked ~ div.sheet-page-combat {
+    display: block;
+}
+
+div.sheet-combact-config {
+	display: none;
+	background-color: #eeeeee;
+}
+
+input.sheet-combact-toggle:checked ~ div.sheet-combact-config {
 	display: block;
+	margin: 0 0 10px 30px;
+	padding: 0 10px 5px 10px;
+	background: linear-gradient(to bottom, rgba(255,255,255,255), rgba(160,160,160,255));
+	border-radius: 0 0 15px 15px;
 }
 
 div.sheet-tab { display: inline-block; padding: 0 30px 0 0;
@@ -21,7 +35,7 @@ div.sheet-tab { display: inline-block; padding: 0 30px 0 0;
                 border-radius: 15px;
                 font-weight: bold;}
 
-div.sheet-attributesSection, div.sheet-charInfoSection, div.sheet-charVitalStatsSection, div.sheet-defenseSummary, div.sheet-skillSection {display: inline-block;
+div.sheet-attributesSection, div.sheet-charInfoSection, div.sheet-charVitalStatsSection, div.sheet-defenseSummary, div.sheet-skillSection, div.sheet-profSection, div.sheet-combactSection {display: inline-block;
 				border-width: 2px;
 				border-color: blue;
 				border-radius: 8px 8px 8px 8px;
@@ -29,6 +43,7 @@ div.sheet-attributesSection, div.sheet-charInfoSection, div.sheet-charVitalStats
 				vertical-align: top;}
 table.sheet-attributeSection, table.sheet-charInfoSection {border-collapse: collapse;
 						border: none;}
+
 
 div.sheet-inlineblock {display: inline-block;}
 
@@ -94,6 +109,53 @@ input.sheet-skillTot[type="text"]{background-color: #5A94E0;
 
 .sheet-skillLabel {font-weight: bold; text-align: right;}
 td.sheet-skillMod {font-style: italic; font-size:.8em; color: #333333;}
+
+
+.sheet-repeating_profs {vertical-align: bottom;
+						line-height: 1;}
+
+div.sheet-profHeader { background: linear-gradient(to left, rgba(170,121,57,					255), rgba(170,121,57,0));
+						border-radius: 5px 5px 0px 0px}
+div.sheet-profHeader div {display: inline-block;
+						font-weight: bold;
+						vertical-align: bottom;}
+
+div.sheet-prof-namecol {width: 160px;
+						display: inline-block;
+						vertical-align: text-bottom;
+						max-height: 100%;}
+div.sheet-prof-namecol select {width: 150px;
+								height: 28px;
+                                position: relative;
+                                vertical-align: text-bottom;
+                                margin-bottom: -4px;
+                                bottom: 0;}
+div.sheet-prof-datacol {width: 40px;
+						max-width: 40px;
+						display: inline-block;}
+div.sheet-prof-datacol-xp {width: 75px;
+							max-width: 75px;
+							display: inline-block;}
+
+
+div.sheet-combactHeader { background: linear-gradient(to left, rgba(170,121,57,					255), rgba(170,121,57,0));
+						border-radius: 5px 5px 0px 0px}
+div.sheet-combact-namecol {width: 210px;
+						display: inline-block;
+						vertical-align: text-bottom;
+						max-height: 100%;
+						padding: 0;}
+
+div.sheet-combact-namecol input {margin-bottom: -4px;}
+
+div.sheet-combact-datacol {width: 40px;
+						max-width: 40px;
+						display: inline-block;}
+
+
+
+div.sheet-selwrapper {margin: 0; padding: 0; bottom: 0;}
+
 .charsheet table td {text-align: left;
 					padding-right: 2px}
 .sheet-header {font-weight: bold;
@@ -121,4 +183,3 @@ td.sheet-sectionBox {border-width: 2px;
 				border-style: solid;}
 table.sheet-sectionTable {    border-spacing: 10px;
 							border-collapse: separate}
-
