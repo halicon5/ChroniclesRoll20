@@ -11,8 +11,10 @@
 <input type="radio" class="page-core" name="attr_pagetab" value="page-core"><div class="tab"> Core Stats</div>
 <input type="radio" class="page-skills" name="attr_pagetab" value="page-skills"><div class="tab"> Skills</div>
 <input type="radio" class="page-combat" name="attr_pagetab" value="page-combat"><div class="tab"> Combat Info</div>
+<input type="radio" class="page-equip" name="attr_pagetab" value="page-equip"><div class="tab"> Equipment</div>
 
 <div class="panel page-core">
+	<h2>Core Stats</h2>
 	<div class="attributesSection">
 		<table class="attributesSection">
 			<tr class="statHeaderRow">
@@ -208,6 +210,7 @@
 </div> <!-- End page-core -->
 
 <div class="panel page-combat">
+	<h2>Combat Information</h2>
 	<div class="defenseSummary">
 		<div class="statHeaderRow">
 			<div class="statLabel">Defense Summary</div>
@@ -339,6 +342,7 @@
 					AP: <input type="text" class="inp2"  name="attr_combact-man-ap" />
 				</div>
 				<div>
+					Shield Block? <input type="checkbox" name="attr_combact-use-shield-block" />
 					Weapon: <input type="text" name="attr_combact-weapon-name" />
 					Diff: <input type="text"  class="inp2" name="attr_combact-weapon-diff" readonly="readonly" />
 					Damage: <input type="text"  class="inp2" name="attr_combact-weapon-dam" readonly="readonly" />
@@ -350,6 +354,8 @@
 					crit: <input type="text"  class="inp2" name="attr_combact-prof-crit" readonly="readonly" />
 					AP: <input type="text" class="inp2"  name="attr_combact-prof-ap" readonly="readonly" />
 				</div>
+
+				Notes: <textarea name="attr_combact-notes" cols="40" rows="2"></textarea>
 			</div> <!-- Close combact config div -->
 		</fieldset>
 	</div>
@@ -357,7 +363,7 @@
 </div> <!-- End Page COmbat -->
 
 <div class="panel page-skills">
-
+	<h2>Skills and Proficiencies</h2>
 	<div class="profSection">
 		<div class="profHeader">
 			<div class="prof-namecol">Combat Proficiency</div>
@@ -474,3 +480,67 @@
 		</table>
 	</div> <!-- End SkillSection -->
 </div> <!-- End page-skills -->
+
+
+<div class="panel page-equip">
+	<h2>Equipment and Inventory</h2>
+	<div class="armorSection">
+		<table class="armorTable">
+			<tr class="statHeaderRow">
+				<th></th>
+				<th>Worn</th>
+				<th>Armor</th>
+				<th>Absorb</th>
+				<th>Crit Mitig.</th>
+				<th>AV Pen</th>
+				<th>Block</th>
+				<th>Bypass</th>
+				<th>Notes</th>
+			</tr>
+			<tr>
+				<td class="statLabel">Head</td>
+				<td><input type="checkbox" name="attr_armor-head-equipped" /></td>
+				<td><input type="text" name="attr_armor-head-name" /></td>
+				<td><input type="text" name="attr_armor-head-absorb" class="inp2" size="2" maxlength="2"/></td>
+				<td><input type="text" name="attr_armor-head-critmit" class="inp2" size="2" maxlength="2"/></td>
+				<td><input type="text" name="attr_armor-head-av-penalty" class="inp3" size="3" maxlength="3"/></td>
+				<td>---</td>
+				<td><input type="text" name="attr_armor-head-bypass" class="inp2" size="2" maxlength="2"/></td>
+				<td><input type="text" name="attr_armor-head-other" /></td>
+			</tr>
+			<tr>
+				<td class="statLabel">Body</td>
+				<td><input type="checkbox" name="attr_armor-body-equipped" /></td>
+				<td><input type="text" name="attr_armor-body-name" /></td>
+				<td><input type="text" name="attr_armor-body-absorb" class="inp2" size="2" maxlength="2"/></td>
+				<td><input type="text" name="attr_armor-body-critmit" class="inp2" size="2" maxlength="2"/></td>
+				<td><input type="text" name="attr_armor-body-av-penalty" class="inp3" size="3" maxlength="3"/></td>
+				<td>---</td>
+				<td><input type="text" name="attr_armor-body-bypass" class="inp2" size="2" maxlength="2"/></td>
+				<td><input type="text" name="attr_armor-body-other" /></td>
+			</tr>
+			<tr>
+				<td class="statLabel">Shield</td>
+				<td><input type="checkbox" name="attr_armor-shield-equipped" /></td>
+				<td><input type="text" name="attr_armor-shield-name" /></td>
+				<td><input type="text" name="attr_armor-shield-absorb" class="inp2" size="2" maxlength="2"/></td>
+				<td><input type="text" name="attr_armor-shield-critmit" class="inp2" size="2" maxlength="2"/></td>
+				<td><input type="text" name="attr_armor-shield-av-penalty" class="inp3" size="3" maxlength="3"/></td>
+				<td><input type="text" name="attr_armor-shield-block" class="inp2" size="2" maxlength="2"></td>
+				<td><input type="text" name="attr_armor-shield-bypass" class="inp2" size="2" maxlength="2"/></td>
+				<td><input type="text" name="attr_armor-shield-other" /></td>
+			</tr>
+			<tr>
+				<td class="statLabel">Other</td>
+				<td><input type="checkbox" name="attr_armor-other-equipped" /></td>
+				<td><input type="text" name="attr_armor-other-name" /></td>
+				<td><input type="text" name="attr_armor-other-absorb" class="inp2" size="2" maxlength="2"/></td>
+				<td><input type="text" name="attr_armor-other-critmit" class="inp2" size="2" maxlength="2"/></td>
+				<td><input type="text" name="attr_armor-other-av-penalty" class="inp3" size="3" maxlength="3"/></td>
+				<td><input type="text" name="attr_armor-other-block" class="inp2" size="2" maxlength="2"></td>
+				<td><input type="text" name="attr_armor-other-bypass" class="inp2" size="2" maxlength="2"/></td>
+				<td><input type="text" name="attr_armor-other-other" /></td>
+			</tr>
+		</table>
+	</div>
+</div> <!-- End page-equip -->

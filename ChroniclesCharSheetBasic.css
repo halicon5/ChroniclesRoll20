@@ -13,7 +13,7 @@ input.sheet-finalVal {background-color: #5A94E0;}
 
 div.sheet-panel {display: none;}
 
-input.sheet-page-core:checked ~ div.sheet-page-core, input.sheet-page-skills:checked ~ div.sheet-page-skills, input.sheet-page-combat:checked ~ div.sheet-page-combat {
+input.sheet-page-core:checked ~ div.sheet-page-core, input.sheet-page-skills:checked ~ div.sheet-page-skills, input.sheet-page-combat:checked ~ div.sheet-page-combat, input.sheet-page-equip:checked ~ div.sheet-page-equip {
     display: block;
 }
 
@@ -35,7 +35,7 @@ div.sheet-tab { display: inline-block; padding: 0 30px 0 0;
                 border-radius: 15px;
                 font-weight: bold;}
 
-div.sheet-attributesSection, div.sheet-charInfoSection, div.sheet-charVitalStatsSection, div.sheet-defenseSummary, div.sheet-skillSection, div.sheet-profSection, div.sheet-combactSection {display: inline-block;
+div.sheet-attributesSection, div.sheet-charInfoSection, div.sheet-charVitalStatsSection, div.sheet-defenseSummary, div.sheet-skillSection, div.sheet-profSection, div.sheet-combactSection, div.sheet-armorSection {display: inline-block;
 				border-width: 2px;
 				border-color: blue;
 				border-radius: 8px 8px 8px 8px;
