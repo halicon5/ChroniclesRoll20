@@ -18,7 +18,7 @@ input.sheet-page-core:checked ~ div.sheet-page-core, input.sheet-page-skills:che
 }
 
 div.sheet-combact-config {
-	display: none;
+    display: none;
 	background-color: #eeeeee;
 }
 
@@ -138,7 +138,7 @@ div.sheet-prof-datacol-xp {width: 75px;
 							display: inline-block;}
 
 
-div.sheet-combactHeader { background: linear-gradient(to left, rgba(170,121,57,					255), rgba(170,121,57,0));
+div.sheet-combactHeader, div.sheet-weaponsHeader { background: linear-gradient(to left, rgba(170,121,57,					255), rgba(170,121,57,0));
 						border-radius: 5px 5px 0px 0px}
 div.sheet-combact-namecol {width: 210px;
 						display: inline-block;
@@ -153,6 +153,42 @@ div.sheet-combact-datacol {width: 40px;
 						display: inline-block;}
 
 
+div.sheet-weapon-namecol {width: 120px;
+						display: inline-block;
+						vertical-align: text-bottom;
+						max-height: 100%;
+						padding: 0;}
+div.sheet-weapon-namecol input {width: 110px;
+                        margin-bottom: -4px;}                        
+
+div.sheet-weapon-datacol {width: 30px;
+						max-width: 30px;
+						display: inline-block;}
+div.sheet-weapon-damagecol {width: 50px;
+						max-width: 50px;
+						display: inline-block;}
+div.sheet-weapon-rangeGroup {width: 160px;
+						max-width: 160px;
+                        margin-left: 10px;
+						display: inline-block;}	
+
+div.sheet-weapon-rangeGroup input:nth-of-type(1) {background-color: #92efa6;}
+div.sheet-weapon-rangeGroup input:nth-of-type(2) {background-color: #92ddef;}
+div.sheet-weapon-rangeGroup input:nth-of-type(3) {background-color: #efdd92;}
+div.sheet-weapon-rangeGroup input:nth-of-type(4) {background-color: #ef9292;}
+
+div.sheet-weapon-ammoGroup {width: 100px;
+						max-width: 100px;
+                        margin-left: 10px;
+						display: inline-block;}						
+div.sheet-weapon-notes {width: 120px;
+						max-width: 120px;
+						display: inline-block;}	
+div.sheet-weapon-notes input.sheet-weapon-notes {width: 110px;
+    					max-width: 110px;}	
+div.sheet-weapon-details {width: 60px; display:inline-block;}
+
+input.sheet-weapon-toggle {display: inline-block;}
 
 div.sheet-selwrapper {margin: 0; padding: 0; bottom: 0;}
 
@@ -165,6 +201,9 @@ div.sheet-selwrapper {margin: 0; padding: 0; bottom: 0;}
 .sheet-inp3 {width:40px}
 .sheet-inp4 {width:4em}
 .sheet-inp5 {width:5em}
+
+input.sheet-inp2_25 {width: 2.25em;}
+input.sheet-damdice {width: 40px;}
 
 input.sheet-inp2big {font-size: 24pt;
 			width: 50px;

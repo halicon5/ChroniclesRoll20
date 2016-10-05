@@ -337,7 +337,7 @@
 				<div>
 					Manual To-Hit: <input type="text" class="inp2" name="attr_combact-man-tohit"  />
 					Diff: <input type="text"  class="inp2" name="attr_combact-man-diff" />
-					Dam: <input type="text"  class="inp2" name="attr_combact-man-dam" />
+					Dam: <input type="text"  class="damDice" name="attr_combact-man-dam" />
 					crit: <input type="text" class="inp2"  name="attr_combact-man-crit" />
 					AP: <input type="text" class="inp2"  name="attr_combact-man-ap" />
 				</div>
@@ -543,4 +543,48 @@
 			</tr>
 		</table>
 	</div>
+
+	<br />
+	
+	<div class="weaponsSection">
+		<div class="weaponsHeader">
+			<div class="weapon-namecol">Weapon/Attack</div>
+			<div class="weapon-datacol">AP Cost</div>
+			<div class="weapon-datacol">Diff</div>
+			<div class="weapon-damagecol">Dam</div>
+			<div class="weapon-datacol">Crit</div>
+			<div class="weapon-datacol">Impact</div>
+			<div class="weapon-rangeGroup">Range <br /> (0 -2 -4 -6)</div>
+			<div class="weapon-datacol">Recoil</div>
+			<div class="weapon-ammoGroup">Ammo / ROF</div>
+			<div class="weapon-notes">Notes</div>
+			<div class="weapon-details">Details</div>
+		</div>
+		<fieldset class="repeating_weapons">
+			<div></div>
+			<div class="weapon-namecol"><input class="write-in-name" type="text" name="attr_weapon-name" /></div>
+			<div class="weapon-datacol"><input class="inp2" type="text" name="attr_weapon-ap-cost" /></div>
+			<div class="weapon-datacol"><input class="inp2" type="text" name="attr_weapon-diff" /></div>
+			<div class="weapon-damagecol"><input class="damdice" type="text" name="attr_weapon-dam" /></div>
+			<div class="weapon-datacol"><input class="inp2" type="text" name="attr_weapon-crit" /></div>
+			<div class="weapon-datacol"><input class="inp2" type="text" name="attr_weapon-impact" /></div>
+			<div class="weapon-rangeGroup">
+				<input class="inp2_25" type="text" name="attr_weapon-range-pb" /> /
+				<input class="inp2_25" type="text" name="attr_weapon-range-short" /> /
+				<input class="inp2_25" type="text" name="attr_weapon-range-med" /> /
+				<input class="inp2_25" type="text" name="attr_weapon-range-long" />
+			</div>
+			<div class="weapon-datacol"><input class="inp2" type="text" name="attr_weapon-recoil" /></div>
+			<div class="weapon-ammoGroup">
+				<input class="inp3" type="text" name="attr_weapon-ammo" /> /
+				<input class="inp3" type="text" name="attr_weapon-rof" />
+			</div>
+			<div class="weapon-notes"><input class="weapon-notes" type="text" name="attr_weapon-notes" /></div>
+			<input type="checkbox" class="combact-toggle" name="combact-toggle" /> 
+
+			<div class="weapon-config">
+			</div>
+		</fieldset>
+	</div>
+
 </div> <!-- End page-equip -->
