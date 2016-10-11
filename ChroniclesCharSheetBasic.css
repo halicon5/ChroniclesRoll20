@@ -35,9 +35,9 @@ div.sheet-tab { display: inline-block; padding: 0 30px 0 0;
                 border-radius: 15px;
                 font-weight: bold;}
 
-div.sheet-attributesSection, div.sheet-charInfoSection, div.sheet-charVitalStatsSection, div.sheet-defenseSummary, div.sheet-skillSection, div.sheet-profSection, div.sheet-combactSection, div.sheet-armorSection {display: inline-block;
+div.sheet-attributesSection, div.sheet-charInfoSection, div.sheet-charVitalStatsSection, div.sheet-defenseSummary, div.sheet-skillSection, div.sheet-profSection, div.sheet-combactSection, div.sheet-armorSection, div.sheet-weaponsSection {display: inline-block;
 				border-width: 2px;
-				border-color: blue;
+				border-color: #4477CC;
 				border-radius: 8px 8px 8px 8px;
 				border-style: solid;
 				vertical-align: top;}
@@ -128,7 +128,7 @@ div.sheet-prof-namecol select {width: 150px;
 								height: 28px;
                                 position: relative;
                                 vertical-align: text-bottom;
-                                margin-bottom: -4px;
+                                margin-bottom: -7px;
                                 bottom: 0;}
 div.sheet-prof-datacol {width: 40px;
 						max-width: 40px;
@@ -140,13 +140,15 @@ div.sheet-prof-datacol-xp {width: 75px;
 
 div.sheet-combactHeader, div.sheet-weaponsHeader { background: linear-gradient(to left, rgba(170,121,57,					255), rgba(170,121,57,0));
 						border-radius: 5px 5px 0px 0px}
+div.sheet-combactHeader div, div.sheet-weaponsHeader div {font-weight: bold;}
+
 div.sheet-combact-namecol {width: 210px;
 						display: inline-block;
 						vertical-align: text-bottom;
 						max-height: 100%;
 						padding: 0;}
 
-div.sheet-combact-namecol input {margin-bottom: -4px;}
+div.sheet-combact-namecol input {margin-bottom: -7px;}
 
 div.sheet-combact-datacol {width: 40px;
 						max-width: 40px;
@@ -203,7 +205,7 @@ div.sheet-selwrapper {margin: 0; padding: 0; bottom: 0;}
 .sheet-inp5 {width:5em}
 
 input.sheet-inp2_25 {width: 2.25em;}
-input.sheet-damdice {width: 40px;}
+input.sheet-damDice {width: 40px;}
 
 input.sheet-inp2big {font-size: 24pt;
 			width: 50px;
