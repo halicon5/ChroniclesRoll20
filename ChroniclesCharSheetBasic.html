@@ -207,11 +207,58 @@
 			</div>
 		</div>
 	</div> <!-- End vital stats section -->
+
+	<br />
+
+	<div class="traitsSection">
+		<div class="traitsHeader">
+			<div class="trait-namecol">Traits</div>
+		</div>
+		<div class="statRow">
+			<div class="traitTextBox" name="traits">
+				<textarea name="traits"></textarea>
+			</div>
+		</div>
+	</div>
+
+	<div class="hcsSection">
+		<div class="hcsHeader">
+			<div class="hc-namecol">Heroic Characteristic</div>
+			<div class="hc-datacol">Rank</div>
+			<div class="hc-datacol">XP</div>
+			<div class="hc-notes">Notes</div>
+		</div>
+		<fieldset class="repeating_hcs">
+			<div class="hc-namecol"><input name="attr_hc-name" class="write-in-name" /></div>
+			<div class="hc-datacol"><input name="attr_hc-rank" class="inp2" /></div>
+			<div class="hc-datacol"><input name="attr_hc-xp" class="inp2" /></div>
+			<div class="hc-notes"><input name="attr_hc-notes" class="shortNotes" maxlength="30" /></div>
+		</fieldset>
+	</div>
+
+
+
+
 </div> <!-- End page-core -->
 
 <div class="panel page-combat">
 	<h2>Combat Information</h2>
 	<div class="defenseSummary">
+		<div class="statHeaderRow">
+			<div class="statLabel defLabel">Combat Info</div>
+			<div class="wideSM">Base</div>
+			<div class="wideSM">Mods</div>
+		</div>
+		<div class="statRow">
+			<div class="defLabel">Action Points:</div>
+			<div class="wideSM"><input type="text" class="comStat inp2" name="attr_ap-base" readonly="readonly"/></div>
+			<div class="wideSM"><input type="text" class="comStat inp2" name="attr_ap-mod" /></div>
+		</div>  
+		<div class="statRow">
+			<div class="defLabel">Initiative:</div>
+			<div class="wideSM"><input type="text" class="comStat inp2" name="attr_init-base" readonly="readonly" /></div>
+			<div class="wideSM"><input type="text" class="comStat inp2" name="attr_init-mod" /></div>
+		</div>
 		<div class="statHeaderRow">
 			<div class="statLabel">Defense Summary</div>
 		</div>
@@ -507,7 +554,7 @@
 				<td><input type="text" name="attr_armor-head-av-penalty" class="inp3" size="3" maxlength="3"/></td>
 				<td>---</td>
 				<td><input type="text" name="attr_armor-head-bypass" class="inp2" size="2" maxlength="2"/></td>
-				<td><input type="text" name="attr_armor-head-other" /></td>
+				<td><input type="text" name="attr_armor-head-notes" /></td>
 			</tr>
 			<tr>
 				<td class="statLabel">Body</td>
@@ -518,7 +565,7 @@
 				<td><input type="text" name="attr_armor-body-av-penalty" class="inp3" size="3" maxlength="3"/></td>
 				<td>---</td>
 				<td><input type="text" name="attr_armor-body-bypass" class="inp2" size="2" maxlength="2"/></td>
-				<td><input type="text" name="attr_armor-body-other" /></td>
+				<td><input type="text" name="attr_armor-body-notes" /></td>
 			</tr>
 			<tr>
 				<td class="statLabel">Shield</td>
@@ -529,7 +576,7 @@
 				<td><input type="text" name="attr_armor-shield-av-penalty" class="inp3" size="3" maxlength="3"/></td>
 				<td><input type="text" name="attr_armor-shield-block" class="inp2" size="2" maxlength="2"></td>
 				<td><input type="text" name="attr_armor-shield-bypass" class="inp2" size="2" maxlength="2"/></td>
-				<td><input type="text" name="attr_armor-shield-other" /></td>
+				<td><input type="text" name="attr_armor-shield-notes" /></td>
 			</tr>
 			<tr>
 				<td class="statLabel">Other</td>
@@ -540,7 +587,7 @@
 				<td><input type="text" name="attr_armor-other-av-penalty" class="inp3" size="3" maxlength="3"/></td>
 				<td><input type="text" name="attr_armor-other-block" class="inp2" size="2" maxlength="2"></td>
 				<td><input type="text" name="attr_armor-other-bypass" class="inp2" size="2" maxlength="2"/></td>
-				<td><input type="text" name="attr_armor-other-other" /></td>
+				<td><input type="text" name="attr_armor-other-notes" /></td>
 			</tr>
 		</table>
 	</div>
